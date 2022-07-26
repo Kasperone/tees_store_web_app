@@ -1,5 +1,7 @@
 <template>
-  <h1>HomeView</h1>
+  <nav-bar />
 </template>
 
-<script setup></script>
+<script setup>
+import NavBar from "../components/NavBar.vue";
+</script>
