@@ -5,11 +5,7 @@
     <p class="py-5 font-medium text-brand-gray-1">Kod Rabatowy:</p>
     <div>
       <input class="w-[270px] h-[59px] mr-[26px] bg-gray-300" type="text" />
-      <button
-        class="w-[125px] h-[60px] bg-white text-blue-600 rounded-[10px] border border-solid border-blue-500"
-      >
-        Apply
-      </button>
+      <action-button text="Apply" />
     </div>
     <div class="flex flex-row justify-between pt-[50px]">
       <span class="font-medium text-sm text-gray-700">miejsce nadruku</span>
@@ -23,7 +19,10 @@
 </template>
 
 <script>
+import ActionButton from "./ActionButton.vue";
+
 export default {
+  components: { ActionButton },
   name: "OrderPreview",
 };
 </script>
