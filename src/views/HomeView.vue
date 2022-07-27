@@ -1,7 +1,15 @@
 <template>
-  <nav-bar />
+  <div>
+    <c-nav-bar />
+    </div>
 </template>
 
-<script setup>
-import NavBar from "../components/NavBar.vue";
+<script>
+import CNavBar from '@/components/NavBar.vue';
+
+export default {
+  components: {
+    CNavBar,
+  },
+};
 </script>
