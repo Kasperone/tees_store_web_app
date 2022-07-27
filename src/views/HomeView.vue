@@ -1,21 +1,16 @@
 <template>
   <h1>HomeView</h1>
-  <c-account/>
-
+  <c-inputRange/>
 </template>
 
 <script >
-import cAccount from "@/components/Account.component.vue";
+import cInputRange from '@/components/InputRange.component.vue'
 
 export default{
-  name:'HomeView',
+  name:'vHome',
 
   components:{
-   cAccount,
-    
+   cInputRange
   }
 }
-
-
-
 </script>

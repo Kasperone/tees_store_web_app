@@ -1,19 +1,13 @@
 <template>
 
-    <div class='w-[44.375rem] h-[2.375rem] absolute  flex justify-center items-center'>
+    <div class='w-[44.375rem] h-[2.375rem] flex justify-center items-center'>
 
+        <c-account-items text='Miejsce nadruku' />
+        <c-account-Items text='Zmiana zdjecia' />
+        <c-account-items text='Dane do wysyłki' />
         <c-account-items
-        text='Miejsce nadruku' />
-
-        <c-accountItems
-        text='Zmiana zdjecia' />
-
-        <c-account-items
-        text='Dane do wysyłki' />
-
-        <c-account-items
-        text='Podsumowanie'
-        is-line-active='false' />
+          text='Podsumowanie'
+          is-line-active='false' />
 
     </div>
 
