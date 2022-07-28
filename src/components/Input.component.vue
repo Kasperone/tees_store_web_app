@@ -2,13 +2,11 @@
   <div>
     <label :for='label'>
 
-    <input id='text'
-           name='text'
-           type="text"
-           :placeholder="placeholder"
-           :value="modelValue"
-           :class="inputStyle"
-           @input="handleInput" />
+    <input :id='id'
+           :placeholder='placeholder'
+           :value='modelValue'
+           :class='inputStyle'
+           @input='handleInput' />
     </label>
   </div>
 </template>
@@ -18,6 +16,11 @@ export default {
   name: 'cInput',
   props: {
     label: {
+      type: String,
+      required: true,
+      default: '',
+    },
+    id: {
       type: String,
       required: true,
       default: '',

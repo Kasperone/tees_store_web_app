@@ -12,7 +12,7 @@
 
     <div class='flex'>
 
-      <c-input id='input'
+      <c-input id='promo'
                class='promo'
                v-model='promo'/>
 
@@ -25,7 +25,7 @@
     </div>
 
     <div class='flex flex-row justify-between mt-5'>
-      <span class='text-xl'>Finial price</span>
+      <span class='text-xl'>Final price</span>
       <div class='font-medium text-xl text-gray-800'>0.00 {{ currency }}</div>
     </div>
   </section>
