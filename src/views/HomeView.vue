@@ -1,11 +1,11 @@
 <template>
   <div>
     <c-nav-bar />
-    </div>
+  </div>
 </template>
 
 <script>
-import CNavBar from '@/components/NavBar.vue';
+import CNavBar from '@/components/NavBar.component.vue';
 
 export default {
   components: {
