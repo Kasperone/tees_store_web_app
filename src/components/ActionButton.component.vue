@@ -37,15 +37,15 @@ export default defineComponent({
 
 @layer components {
   button {
-    @apply h-[60px] rounded-[10px];
+    @apply h-14 rounded-lg;
   }
 
   .primary {
-    @apply w-[125px]  bg-white text-blue-600  border border-solid border-blue-500;
+    @apply w-32  bg-white text-blue-600  border border-solid border-blue-500;
   }
 
   .secondary {
-    @apply w-[200px] bg-blue-600 text-white;
+    @apply w-52 bg-blue-600 text-white;
   }
 }
 </style>

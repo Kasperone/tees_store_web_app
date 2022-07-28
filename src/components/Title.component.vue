@@ -38,7 +38,7 @@ export default defineComponent({
     @apply text-xl font-medium;
   }
   .secondary {
-    @apply text-xl font-medium  text-brand-gray-1;
+    @apply text-base font-medium  text-brand-gray-1;
   }
   .third {
     @apply text-base font-medium text-brand-gray-1;
