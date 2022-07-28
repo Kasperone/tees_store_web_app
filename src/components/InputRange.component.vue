@@ -1,15 +1,19 @@
 <template>
     <div>
-        <p for='range'   
+        <label for='range'   
            class='font-bold text-gray-600'>
             {{ text }}
-        </p>
-            <input type='range'     
-                   min='1' 
-                   max='10'  
-                   value='1' 
-                   name='range' 
-                   class='w-[26.5rem] h-px bg-black cursor-pointer  appearance-none slider-thumb ' />     
+        </label>
+            <div>
+
+                <input type='range'     
+                    min={{minValue}}
+                    max={{maxValue}}  
+                    value={{stepValue}}
+                    name='range' 
+                    class='w-[26.5rem] h-px bg-black cursor-pointer appearance-none slider-thumb ' /> 
+                     
+            </div>           
     </div>
    
 </template>
@@ -23,7 +27,19 @@ export default {
         text: {
             type:String,
             default:'Blur'
-        } 
+        },
+        minValue:{
+            type:String,
+            default:'1'
+        },
+        maxValue:{
+            type:String,
+            default:'10'
+        },
+        stepValue:{
+            type:String,
+            default:'1'
+        }
     }
 }
 </script>

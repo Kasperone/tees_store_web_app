@@ -7,6 +7,7 @@
 
         <li v-if="!isLineActive"   
             class="flex w-24">
+            
           <span class='mr-1 m-auto min-w-4'>
             <img src='../assets/Line.png' 
                  alt='line-photo' w-6 />

@@ -1,16 +1,13 @@
 <template>
   <h1>HomeView</h1>
-  <c-input-range/>
+    <router-link :to="{ name: 'placeOfPrintingView'}">
+      User
+    </router-link>  
 </template>
 
 <script>
-import cInputRange from '@/components/InputRange.component.vue'
 
 export default{
   name:'vHome',
-
-  components:{
-   cInputRange
-  }
 }
 </script>

@@ -4,15 +4,14 @@
       {{ number }}      
     </span>
 
-      <span v-if='!isChecked'>
-        <img class='ml-px w-[0.725rem] h-[0.725] mt-[0.188rem]' 
-             src='../assets/check-4785.png'  
-             alt='icon-check'/>
+    <span v-if='!isChecked'>
+      <img class='ml-px w-[0.725rem] h-[0.725] mt-[0.188rem]' 
+           src='../assets/check-4785.png'  
+           alt='icon-check'/>
 
-      </span>
-
+    </span>
   </div>
-  
+
 </template>
 
 <script>
