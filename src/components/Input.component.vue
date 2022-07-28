@@ -17,22 +17,18 @@ export default {
   props: {
     label: {
       type: String,
-      required: true,
       default: '',
     },
     id: {
       type: String,
-      required: true,
       default: '',
     },
     placeholder: {
       type: String,
-      required: false,
       default: '',
     },
     modelValue: {
       type: String,
-      required: true,
       default: '',
     },
     type: {
