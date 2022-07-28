@@ -1,12 +1,12 @@
 <template>
-  <button :class="buttonClass">
-    {{ text }}
-  </button>
+  <button :class='buttonClass'>{{ text }}</button>
 </template>
 
 <script>
-export default {
-  name: "ActionButton",
+import { computed, toRefs, defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'cActionButton',
   props: {
     text: {
       type: String,
@@ -14,21 +14,22 @@ export default {
     },
     type: {
       type: String,
-      required: false,
-      default: "primary",
+      default: 'primary',
       validator(value) {
-        return ["primary", "secondary"].includes(value);
+        return [ 'primary', 'secondary' ].includes(value);
       },
     },
   },
-  computed: {
-    buttonClass() {
-      return {
-        [this.type]: true,
-      };
-    },
+  setup(props) {
+    const { type } = toRefs(props);
+
+    const buttonClass = computed(() => ({
+      [ type.value ]: true,
+    }));
+    return { buttonClass };
   },
-};
+});
+
 </script>
 
 <style scoped>
