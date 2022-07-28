@@ -2,13 +2,17 @@
   <div class='w-5 h-5 border-2 rounded-full bg-black'>
     <span class='text-white flex justify-center mt-[-0.063rem] text-xs'>
       {{ number }}      
-      </span>
-    <span v-if='!isChecked'>
+    </span>
+
+      <span v-if='!isChecked'>
         <img class='ml-px w-[0.725rem] h-[0.725] mt-[0.188rem]' 
              src='../assets/check-4785.png'  
              alt='icon-check'/>
-    </span>
+
+      </span>
+
   </div>
+  
 </template>
 
 <script>

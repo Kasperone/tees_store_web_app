@@ -1,12 +1,11 @@
 <template>
-
     <div class='w-[44.375rem] h-[2.375rem] flex justify-center items-center'>
 
-        <c-account-items text='Miejsce nadruku' />
-        <c-account-Items text='Zmiana zdjecia' />
-        <c-account-items text='Dane do wysyłki' />
+        <c-account-items text='empty string' />
+        <c-account-Items text='empty string' />
+        <c-account-items text='empty string' />
         <c-account-items
-          text='Podsumowanie'
+          text='empty string'
           is-line-active='false' />
 
     </div>
