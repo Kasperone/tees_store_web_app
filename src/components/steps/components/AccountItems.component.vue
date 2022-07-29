@@ -1,37 +1,42 @@
 <template>
-  <div>
+  <div v-for='(item, index) in itemArray' 
+       :key='item'>
+
     <ul class='flex'>
-      <li class='mr-5 ml-5'>
-        {{ text }}
+      <li :class="[ currentPage === item.PageName ? 'text-color' :'' ]">
+        <p class='text-center ml-2'> {{item.name}} </p>    
+       
       </li>
 
-        <li v-if="!isLineActive"   
+          <li :class="[index === itemLength - 1 ? 'hidden' : '']"   
             class="flex w-24">
             
-          <span class='mr-1 m-auto min-w-4'>
-            <img src='../assets/Line.png' 
-                 alt='line-photo' w-6 />
+            <span class='mr-1 m-auto min-w-4'>
+              <img src='@/assets/Line.png' 
+                   alt='line-photo' w-6 />
 
-          </span>  
+            </span>  
 
               <span class='w-5 h-5 m-auto'>
-                <c-Circule />
+                <c-Circule :item-number='item.id' />
               </span> 
 
                 <span class="m-auto max-w-4">
                   <img class='ml-1' 
-                       src='../assets/Line.png' 
+                       src='@/assets/Line.png' 
                        alt="line-photo" />
 
                 </span>
 
-        </li>
-    </ul>
+          </li> 
+    </ul>   
   </div>
 </template>
 
 <script>
-import cCircule from '@/components/Circule.component.vue';
+import cCircule from '@/components/steps/components/Circule.component.vue';
+import {useStore} from 'vuex'
+import {computed} from 'vue'
 
 export default {
   name: 'cAccountItems',
@@ -39,14 +44,23 @@ export default {
     cCircule,
   },
   props: {
-    text: {
-      type: String,
+    itemArray: {
+      type: Array,
       required: true,
     },
-    isLineActive: {
-      type: Boolean,
-      default: false,
-    },
   },
+
+
+  setup(props){
+
+      const store = useStore()
+      const currentPage = computed(()=>store.state.currentPageName)
+      const itemLength = computed(() => props.itemArray.length)
+
+        return {store, currentPage, itemLength}
+
+  }
 };
 </script>
+
+
