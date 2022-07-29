@@ -24,6 +24,7 @@ export default defineComponent({
     const titleClass = computed(() => ({
       [ type.value ]: true,
     }));
+
     return { titleClass };
   },
 });

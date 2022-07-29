@@ -1,7 +1,7 @@
 <template>
-  <img class='mb-2.5'
-       alt='print image'
+  <img alt='print image'
        :src='printImage' />
+
 </template>
 
 <script>
@@ -11,7 +11,8 @@ export default defineComponent({
   name: 'cImage',
   setup() {
     // eslint-disable-next-line global-require
-    const printImage = ref(require('../assets/images/image1.png'));
+    const printImage = ref(require('../assets/images/yellow-print.png'));
+
     return { printImage };
   },
 });

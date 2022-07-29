@@ -3,10 +3,7 @@
     <c-title class='pt-6 pb-5'
              text='Order preview' />
 
-    <c-image />
-<!--    <img class='mb-2.5'-->
-<!--         alt='image'-->
-<!--         src='../assets/images/image1.png' />-->
+    <c-image class='mb-2.5' />
 
     <c-title type='secondary'
              text='Promo code:' />
