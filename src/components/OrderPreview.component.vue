@@ -3,9 +3,10 @@
     <c-title class='pt-6 pb-5'
              text='Order preview' />
 
-    <img class='mb-2.5'
-         alt='image'
-         src='../assets/images/image1.png' />
+    <c-image />
+<!--    <img class='mb-2.5'-->
+<!--         alt='image'-->
+<!--         src='../assets/images/image1.png' />-->
 
     <c-title type='secondary'
              text='Promo code:' />
@@ -33,10 +34,11 @@
 import cActionButton from '@/components/ActionButton.component.vue';
 import cTitle from '@/components/Title.component.vue';
 import cInput from '@/components/Input.component.vue';
+import cImage from '@/components/Image.component.vue';
 
 export default {
   name: 'cOrderPreview',
-  components: { cActionButton, cTitle, cInput },
+  components: { cImage, cActionButton, cTitle, cInput },
   props: {
     currency: {
       type: String,
