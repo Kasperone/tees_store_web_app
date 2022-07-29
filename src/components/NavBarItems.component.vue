@@ -1,16 +1,19 @@
 <template>
 <div class=" container mx-auto py-8 flex items-center justify-between">
+
     <div v-if="isActive"
          class="flex items-center justify-between">
 
           <img :src="require(`@/assets/images/${imgFileName}`)"
                :alt="imgAlt" />
+
     </div>
 
     <c-nav-bar-links :all-links="allLinks"/>
-    <c-nav-bar-item-drop :is-active='true'
+    <c-nav-bar-item-drop  :is-active='true'
                           img-file-name='arrow.svg'
                           img-alt="arrow" />
+
 </div>
 
 </template>

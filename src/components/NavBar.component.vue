@@ -5,8 +5,10 @@
                         img-file-name='tees-logo.png'
                         img-alt="tees logo"  />
     </nav>
-    <img src="@/assets/images/line.svg"
-        alt="horisontal line" />
+
+    <img  src="@/assets/images/line.svg"
+          alt="horisontal line" />
+
     </section>
 </template>
 

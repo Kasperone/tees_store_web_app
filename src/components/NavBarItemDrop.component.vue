@@ -1,11 +1,13 @@
 <template>
     <div class="flex justify-between">
-        <div v-if="isActive"
-            class="flex items-center justify-between space-x-2 px-6 text-brand-gray-light">
+        <div  v-if="isActive"
+              class="flex items-center justify-between space-x-2 px-6 text-brand-gray-light">
 
           <h2 class="text-lg">{{ $t("account") }}</h2>
-            <img :src="require(`@/assets/images/${imgFileName}`)"
-                 :alt="imgAlt" />
+
+          <img  :src="require(`@/assets/images/${imgFileName}`)"
+                :alt="imgAlt" />
+
         </div>
 
         <div class="flex flex-row space-x-2">
