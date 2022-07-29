@@ -1,18 +1,20 @@
 <template>
-  <div>
+  <form>
     <label :for='label'>
 
     <input :id='id'
+           class='input'
+           v-model='promoCode'
            :placeholder='placeholder'
-           :value='modelValue'
-           :class='inputStyle'
            @input='handleInput' />
     </label>
-  </div>
+  </form>
 </template>
 
 <script>
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'cInput',
   props: {
     label: {
@@ -27,32 +29,19 @@ export default {
       type: String,
       default: '',
     },
-    modelValue: {
-      type: String,
-      default: '',
-    },
-    type: {
-      type: String,
-      default: 'promo',
-      validator(value) {
-        return [ 'promo' ].includes(value);
-      },
-    },
   },
   emits: [ 'update:modelValue' ],
   methods: {
-    handleInput($event) {
-      this.$emit('update:modelValue', $event.target.value);
+    handleInput(event) {
+      this.$emit('update:modelValue', event.target.value);
     },
   },
-  computed: {
-    inputStyle() {
-      return {
-        [ this.type ]: true,
-      };
-    },
+  data() {
+    return {
+      promoCode: '',
+    };
   },
-};
+});
 </script>
 
 <style scoped>
@@ -60,11 +49,7 @@ export default {
 
 @layer components {
   input {
-    @apply w-full;
-  }
-
-  .promo {
-    @apply h-14 mr-6 bg-gray-300 rounded-[10px];
+    @apply w-full h-14 bg-gray-300 rounded-xl;
   }
 }
 </style>

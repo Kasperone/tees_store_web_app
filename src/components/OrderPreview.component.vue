@@ -10,11 +10,9 @@
     <c-title type='secondary'
              text='Promo code:' />
 
-    <div class='flex'>
+    <div class='flex w-full space-x-10'>
 
-      <c-input id='promo'
-               class='promo'
-               v-model='promo'/>
+      <c-input id='promo' />
 
       <c-action-button text='Apply' />
     </div>
@@ -44,11 +42,6 @@ export default {
       type: String,
       default: 'euro',
     },
-  },
-  data() {
-    return {
-      promo: '',
-    };
   },
 };
 </script>
