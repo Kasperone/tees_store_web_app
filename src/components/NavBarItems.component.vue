@@ -2,13 +2,15 @@
 <div class=" container mx-auto py-8 flex items-center justify-between">
     <div v-if="isActive"
          class="flex items-center justify-between">
+
           <img :src="require(`@/assets/images/${imgFileName}`)"
                :alt="imgAlt" />
     </div>
+
     <c-nav-bar-links :all-links="allLinks"/>
-    <c-nav-bar-account-drop-down :is-active='true'
-                                img-file-name='arrow.svg'
-                                img-alt="arrow" />
+    <c-nav-bar-item-drop :is-active='true'
+                          img-file-name='arrow.svg'
+                          img-alt="arrow" />
 </div>
 
 </template>
@@ -16,13 +18,13 @@
 <script>
 import { ref } from 'vue';
 import cNavBarLinks from '@/components/NavBarLinks.component.vue';
-import cNavBarAccountDropDown from '@/components/NavBarAccountDropDown.component.vue';
+import cNavBarItemDrop from '@/components/NavBarItemDrop.component.vue';
 
 export default {
   name: 'cNavBarItems',
   components: {
     cNavBarLinks,
-    cNavBarAccountDropDown,
+    cNavBarItemDrop,
   },
   props: {
     Text: {
