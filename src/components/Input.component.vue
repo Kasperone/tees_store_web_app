@@ -2,7 +2,6 @@
     <label :for='label'>
 
     <input :id='id'
-           class='input'
            :value='value'
            :placeholder='placeholder'
            @input='handleInput' />
