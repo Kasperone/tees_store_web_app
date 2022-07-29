@@ -1,5 +1,4 @@
 <template>
-  <form>
     <label :for='label'>
 
     <input :id='id'
@@ -8,7 +7,6 @@
            :placeholder='placeholder'
            @input='handleInput' />
     </label>
-  </form>
 </template>
 
 <script>
