@@ -3,14 +3,14 @@
 
     <input :id='id'
            class='input'
-           v-model='promoCode'
+           :value='value'
            :placeholder='placeholder'
            @input='handleInput' />
     </label>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { ref, defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'cInput',
@@ -28,15 +28,15 @@ export default defineComponent({
       default: '',
     },
   },
-  emits: [ 'update:modelValue' ],
-  methods: {
-    handleInput(event) {
-      this.$emit('update:modelValue', event.target.value);
-    },
-  },
-  data() {
+  setup(_, { emit }) {
+    const value = ref('');
+    const handleInput = (event) => {
+      emit(value.value = event.target.value);
+    };
+
     return {
-      promoCode: '',
+      handleInput,
+      value,
     };
   },
 });
