@@ -3,8 +3,9 @@
        :key='index'>
 
     <ul class='flex'>
-      <li :class="[ currentPage === item.PageName ? 'text-color' :'' ]">
-        <span class='text-center ml-2'> {{item.name}} </span>    
+      <li :class="[ currentPage === item.PageName ? 'text-color' :'' ]" 
+          class='text-center'>
+        <span> {{item.name}} </span>    
        
       </li>
 
