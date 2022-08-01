@@ -4,16 +4,12 @@
 
 <script>
 import cAccount from '@/components/steps/Account.component.vue';
-
 import {useRouter} from 'vue-router'
 import {useStore} from 'vuex'
 import {computed, provide} from 'vue'
-
 export default{
-
-    name:'hangeOfImprintView',
-
-     components:{
+    name:'vShippingInformation',
+    components:{
          cAccount
     },
 
@@ -25,12 +21,15 @@ export default{
 
         store.dispatch('routerName', currentPathObject.name)
 
-        const currentPage = computed(()=>store.getters.getPathNumber)
+        const currentPage = computed(() => store.getters.getPathNumber)
 
         provide('number', currentPage.value[0])
 
-        return {store, router, currentPathObject, currentPage}
-
+        return { 
+            router, 
+            currentPathObject, 
+            currentPage
+        }
     }
 }
 </script>

@@ -6,22 +6,20 @@
         </label>
             <div>
 
-                 <input type='range'     
-                        min='minValue'
-                        max='maxValue' 
-                        value='stepValue'
-                        name='range' 
-                        class='w-[26.5rem] h-px bg-black cursor-pointer appearance-none slider-thumb ' /> 
+                 <input type='range'    
+                        :min='minValue'
+                        :max='maxValue'
+                        :value='stepValue'
+                        :name='range' 
+                        class='w-[26.5rem] h-px bg-black cursor-pointer appearance-none slider-thumb '/> 
                      
             </div>           
-    </div>
-   
+    </div> 
 </template>
 
 <script>
-export default {
+export default {  
     name: 'cInputRange',
-
     props: {
 
         text: {

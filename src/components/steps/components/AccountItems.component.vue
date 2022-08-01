@@ -1,10 +1,10 @@
 <template>
   <div v-for='(item, index) in itemArray' 
-       :key='item'>
+       :key='index'>
 
     <ul class='flex'>
       <li :class="[ currentPage === item.PageName ? 'text-color' :'' ]">
-        <p class='text-center ml-2'> {{item.name}} </p>    
+        <span class='text-center ml-2'> {{item.name}} </span>    
        
       </li>
 
@@ -37,7 +37,6 @@
 import cCircule from '@/components/steps/components/Circule.component.vue';
 import {useStore} from 'vuex'
 import {computed} from 'vue'
-
 export default {
   name: 'cAccountItems',
   components: {
@@ -50,15 +49,16 @@ export default {
     },
   },
 
-
   setup(props){
 
       const store = useStore()
-      const currentPage = computed(()=>store.state.currentPageName)
+      const currentPage = computed(() => store.state.currentPageName)
       const itemLength = computed(() => props.itemArray.length)
 
-        return {store, currentPage, itemLength}
-
+      return {
+        currentPage, 
+        itemLength
+      }
   }
 };
 </script>

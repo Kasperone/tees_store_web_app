@@ -7,11 +7,9 @@
 </template>
 
 <script>
-
 import cAccount from '@/components/steps/Account.component.vue'
 export default{
   name:'vHome',
-
   components:{
     cAccount
   },
