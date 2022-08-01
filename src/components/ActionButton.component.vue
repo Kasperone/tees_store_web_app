@@ -26,6 +26,7 @@ export default defineComponent({
     const buttonClass = computed(() => ({
       [ type.value ]: true,
     }));
+
     return { buttonClass };
   },
 });
