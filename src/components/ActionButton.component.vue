@@ -16,7 +16,7 @@ export default defineComponent({
       type: String,
       default: 'primary',
       validator(value) {
-        return [ 'primary', 'secondary' ].includes(value);
+        return ['primary', 'secondary'].includes(value);
       },
     },
   },
@@ -24,10 +24,12 @@ export default defineComponent({
     const { type } = toRefs(props);
 
     const buttonClass = computed(() => ({
-      [ type.value ]: true,
+      [type.value]: true,
     }));
 
-    return { buttonClass };
+    return {
+      buttonClass,
+    };
   },
 });
 

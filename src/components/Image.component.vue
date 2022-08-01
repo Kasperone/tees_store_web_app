@@ -13,7 +13,9 @@ export default defineComponent({
     // eslint-disable-next-line global-require
     const printImage = ref(require('../assets/images/yellow-print.png'));
 
-    return { printImage };
+    return {
+      printImage,
+    };
   },
 });
 </script>
