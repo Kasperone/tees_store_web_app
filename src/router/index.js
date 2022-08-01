@@ -1,11 +1,30 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import vHome from '../views/Home.view.vue';
+
+import PlaceOfPrintingView from '../views/PlaceOfPrintingView.vue';
+import HangeofImprintView from '../views/HangeofImprintView.vue';
+import ShippingInformation from '../views/ShippingInformation.vue';
+import SummaryView from '../views/SummaryView.vue';
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: vHome,
+    path:'/',
+    name: 'placeOfPrintingView',
+    component: PlaceOfPrintingView
+  },
+  {
+    path:'/hangeofImprintView',
+    name: 'hangeofImprintView',
+    component: HangeofImprintView
+  },
+  {
+    path:'/shippingInformation',
+    name: 'shippingInformation',
+    component: ShippingInformation
+  },
+  {
+    path:'/summaryView',
+    name: 'summaryView',
+    component: SummaryView
   },
 ];
 
