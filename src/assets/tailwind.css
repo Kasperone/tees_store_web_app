@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
-  .text-color{
-    @apply text-blue-600 
-  }
+@layer components {
+    .text-color {
+        @apply text-blue-600
+    }
 }
-  

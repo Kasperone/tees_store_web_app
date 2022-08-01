@@ -1,7 +1,7 @@
 <template>
-  <img alt='print image'
-       :src='printImage' />
-
+  <img
+    alt="print image"
+    :src="printImage" />
 </template>
 
 <script>

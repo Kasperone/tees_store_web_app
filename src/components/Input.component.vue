@@ -1,12 +1,11 @@
 <template>
-  <label :for='label'>
-
-    <input :id='id'
-           :value='value'
-           :placeholder='placeholder'
-           @input='handleInput' />
+  <label :for="label">
+    <input
+      :id="id"
+      :value="value"
+      :placeholder="placeholder"
+      @input="handleInput" />
   </label>
-
 </template>
 
 <script>
@@ -31,7 +30,7 @@ export default defineComponent({
   setup(_, { emit }) {
     const value = ref('');
     const handleInput = (event) => {
-      emit(value.value = event.target.value);
+      emit((value.value = event.target.value));
     };
 
     return {

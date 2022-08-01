@@ -26,6 +26,7 @@ export default createStore({
     ],
     imageSrc: [
       {
+        // eslint-disable-next-line global-require
         src: require('@/assets/images/check-icon.png'),
       },
     ],
@@ -33,7 +34,9 @@ export default createStore({
   },
   getters: {
     getPathNumber: (state) => {
-      const findElem = state.routerNames.filter((elem) => elem.PageName === state.currentPageName);
+      const findElem = state.routerNames.filter(
+        (elem) => elem.PageName === state.currentPageName,
+      );
       return findElem.map((elem) => elem.id);
     },
     getImagePath: (state) => state.imageSrc.map((item) => item.src),

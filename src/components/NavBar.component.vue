@@ -1,15 +1,16 @@
 <template>
   <section>
     <nav>
-      <c-nav-bar-items :is-active='true'
-                        img-file-name='tees-logo.png'
-                        img-alt="tees logo"  />
+      <c-nav-bar-items
+        :is-active="true"
+        img-file-name="tees-logo.png"
+        img-alt="tees logo" />
     </nav>
 
-    <img  src="@/assets/images/line.svg"
-          alt="horisontal line" />
-
-    </section>
+    <img
+      src="@/assets/images/line.svg"
+      alt="horisontal line" />
+  </section>
 </template>
 
 <script>

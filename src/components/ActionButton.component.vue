@@ -1,5 +1,5 @@
 <template>
-  <button :class='buttonClass'>{{ text }}</button>
+  <button :class="buttonClass">{{ text }}</button>
 </template>
 
 <script>
@@ -32,7 +32,6 @@ export default defineComponent({
     };
   },
 });
-
 </script>
 
 <style scoped>
