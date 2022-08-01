@@ -3,31 +3,33 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: [
-    'plugin:vue/essential',
-    '@vue/airbnb',
-  ],
+  extends: ['plugin:vue/essential', '@vue/airbnb'],
   parserOptions: {
-    ecmaVersion: 2020,
+  ecmaVersion: 2020,
   },
   rules: {
-    'no-param-reassign': [ 2, { props: false }],
+    'no-multiple-empty-lines': ['error', { max: 2 }],
+    'no-param-reassign': [2, { props: false }],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'computed-property-spacing': [ 'error', 'always' ],
-    'array-bracket-spacing': [ 'error', 'always', {
-      singleValue: true,
-      objectsInArrays: false,
-      arraysInArrays: false,
-    }],
-    'object-curly-spacing': [ 2, 'always' ],
-    'no-multi-spaces': [ 'error', { exceptions: { ImportDeclaration: true } }],
-    'no-duplicate-imports': [ 'error', { includeExports: true }],
-    'object-curly-newline': [ 'error', { ImportDeclaration: 'never' }],
+    'computed-property-spacing': ['error', 'never'],
+    'array-bracket-spacing': [
+      'error',
+      'never',
+      {
+        singleValue: false,
+        objectsInArrays: false,
+        arraysInArrays: false,
+      },
+    ],
+    'object-curly-spacing': [2, 'always'],
+    'no-multi-spaces': ['error', { exceptions: { ImportDeclaration: true } }],
+    'no-duplicate-imports': ['error', { includeExports: true }],
+    'object-curly-newline': ['error', { ImportDeclaration: 'never' }],
     'import/prefer-default-export': 'off',
     'prefer-promise-reject-errors': 'off',
-    indent: [ 'error', 2 ],
-    'max-len': [ 'error', 200 ],
+    indent: ['error', 2],
+    'max-len': ['error', 200],
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -39,15 +41,16 @@ module.exports = {
       },
     ],
     'no-shadow': 'off',
-    'vue/max-attributes-per-line': [ 'error', {
-      singleline: 1,
-    }],
+    'vue/max-attributes-per-line': [
+      'error',
+      {
+        singleline: 1,
+      },
+    ],
   },
   overrides: [
     {
-      files: [
-        '**/*.unit.{j,t}s?(x)',
-      ],
+      files: ['**/*.unit.{j,t}s?(x)'],
       env: {
         jest: true,
       },

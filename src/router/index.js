@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
+
 import PlaceOfPrintingView from '../views/PlaceOfPrintingView.vue';
 import HangeofImprintView from '../views/HangeofImprintView.vue';
 import ShippingInformation from '../views/ShippingInformation.vue';
@@ -7,12 +7,7 @@ import SummaryView from '../views/SummaryView.vue';
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView,
-  },
-  {
-    path:'/placeOfPrinting',
+    path:'/',
     name: 'placeOfPrintingView',
     component: PlaceOfPrintingView
   },
