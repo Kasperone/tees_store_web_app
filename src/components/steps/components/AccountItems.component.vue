@@ -37,7 +37,8 @@
 import cCircule from '@/components/steps/components/Circule.component.vue';
 import {useStore} from 'vuex'
 import {computed} from 'vue'
-export default {
+
+export default{
   name: 'cAccountItems',
   components: {
     cCircule,

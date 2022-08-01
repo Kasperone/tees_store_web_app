@@ -1,7 +1,7 @@
 <template>
     <div>
         <label for='range'   
-           class='font-bold text-gray-600'>
+               class='font-bold text-gray-600'>
             {{ text }}
         </label>
             <div>
@@ -18,7 +18,8 @@
 </template>
 
 <script>
-export default {  
+
+export default{  
     name: 'cInputRange',
     props: {
 

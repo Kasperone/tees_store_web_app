@@ -19,10 +19,11 @@
 
 <script>
 import {inject, computed} from 'vue';
-export default {
+
+export default{
   name: 'cCircule',
-  props:{
-      itemNumber:{
+  props: {
+      itemNumber: {
         type:Number,
         required:true,
       }
@@ -37,7 +38,7 @@ export default {
           number, 
           bulletNum,
           taskChecked
-          }
+        }
     }
 };
 </script>
