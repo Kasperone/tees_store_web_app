@@ -29,7 +29,8 @@ export default{
         return {
             router, 
             currentPathObject, 
-            currentPage
+            currentPage,
+            bulletNum
          }
     }
 }

@@ -13,7 +13,7 @@
             class="flex w-24">
             
             <span class='mr-1 m-auto min-w-4'>
-              <img src='@/assets/Line.png' 
+              <img src='@/assets/images/Line.png' 
                    alt='line-photo' w-6 />
 
             </span>  
@@ -24,7 +24,7 @@
 
                 <span class="m-auto max-w-4">
                   <img class='ml-1' 
-                       src='@/assets/Line.png' 
+                       src='@/assets/images/Line.png' 
                        alt="line-photo" />
 
                 </span>

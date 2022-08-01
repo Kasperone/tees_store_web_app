@@ -26,8 +26,7 @@ export default createStore({
     ],
     imageSrc: [
       {
-        // eslint-disable-next-line global-require
-        src: require('@/assets/check-icon.png'),
+        src: require('@/assets/images/check-icon.png'),
       },
     ],
     currentPageName: 'placeOfPrintingView',

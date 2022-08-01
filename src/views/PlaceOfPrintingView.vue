@@ -29,8 +29,7 @@ export default{
         return {
             router, 
             currentPathObject, 
-            currentPage, 
-            getImgPath   
+            currentPage,  
         }
     }
 }

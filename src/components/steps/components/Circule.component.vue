@@ -9,7 +9,7 @@
 
     <span>
       <img class='ml-px w-[0.725rem] h-[0.725] mt-[0.188rem]' 
-             src='@/assets/check-icon.png'
+             src='@/assets/images/check-icon.png'
              alt='icon-check'/>   
 
       </span>  
@@ -31,8 +31,8 @@ export default{
     setup(props){
 
         const number = inject('number');
-        const bulletNum = inject('bulletNum')  
-        const taskChecked = computed(() => number > props.itemNumber)
+        const bulletNum = inject<number>('bulletNum'); 
+        const taskChecked = computed(() => number > props.itemNumber);
      
         return {
           number, 
