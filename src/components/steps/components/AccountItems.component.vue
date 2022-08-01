@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div
     v-for="(item, index) in itemArray"
     :key="index">
@@ -31,6 +32,7 @@
         </span>
       </li>
     </ul>
+  </div>
   </div>
 </template>
 

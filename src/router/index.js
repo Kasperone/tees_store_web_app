@@ -4,10 +4,16 @@ import PlaceOfPrintingView from '../views/PlaceOfPrintingView.vue';
 import HangeofImprintView from '../views/HangeofImprintView.vue';
 import ShippingInformation from '../views/ShippingInformation.vue';
 import SummaryView from '../views/SummaryView.vue';
+import HomeView from '../views/HomeView.vue';
 
 const routes = [
   {
     path: '/',
+    name: 'home',
+    component: HomeView,
+  },
+  {
+    path: '/placeOfPrintingView',
     name: 'placeOfPrintingView',
     component: PlaceOfPrintingView,
   },
