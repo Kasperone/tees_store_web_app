@@ -48,7 +48,7 @@ export default {
     },
   },
   setup() {
-    const allLinks = ref([ 'home', 'shop', 'contact', 'help' ]);
+    const allLinks = ref(['home', 'shop', 'contact', 'help']);
 
     return {
       allLinks,
