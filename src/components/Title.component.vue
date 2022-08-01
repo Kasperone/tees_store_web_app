@@ -15,17 +15,19 @@ export default defineComponent({
     type: {
       type: String,
       default: 'primary',
-      validator: (value) => [ 'primary', 'secondary', 'third' ].includes(value),
+      validator: (value) => ['primary', 'secondary', 'third'].includes(value),
     },
   },
   setup(props) {
     const { type } = toRefs(props);
 
     const titleClass = computed(() => ({
-      [ type.value ]: true,
+      [type.value]: true,
     }));
 
-    return { titleClass };
+    return {
+      titleClass,
+    };
   },
 });
 
@@ -38,9 +40,11 @@ export default defineComponent({
   .primary {
     @apply text-xl font-medium;
   }
+
   .secondary {
     @apply text-base font-medium  text-brand-gray-1;
   }
+
   .third {
     @apply text-base font-medium text-brand-gray-1;
   }

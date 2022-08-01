@@ -1,11 +1,11 @@
 <template>
-    <label :for='label'>
+  <label :for='label'>
 
     <input :id='id'
            :value='value'
            :placeholder='placeholder'
            @input='handleInput' />
-    </label>
+  </label>
 
 </template>
 
