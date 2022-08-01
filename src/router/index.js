@@ -7,24 +7,24 @@ import SummaryView from '../views/SummaryView.vue';
 
 const routes = [
   {
-    path:'/',
+    path: '/',
     name: 'placeOfPrintingView',
-    component: PlaceOfPrintingView
+    component: PlaceOfPrintingView,
   },
   {
-    path:'/hangeofImprintView',
+    path: '/hangeofImprintView',
     name: 'hangeofImprintView',
-    component: HangeofImprintView
+    component: HangeofImprintView,
   },
   {
-    path:'/shippingInformation',
+    path: '/shippingInformation',
     name: 'shippingInformation',
-    component: ShippingInformation
+    component: ShippingInformation,
   },
   {
-    path:'/summaryView',
+    path: '/summaryView',
     name: 'summaryView',
-    component: SummaryView
+    component: SummaryView,
   },
 ];
 

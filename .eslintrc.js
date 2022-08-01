@@ -5,7 +5,7 @@ module.exports = {
   },
   extends: ['plugin:vue/essential', '@vue/airbnb'],
   parserOptions: {
-  ecmaVersion: 2020,
+    ecmaVersion: 2020,
   },
   rules: {
     'no-multiple-empty-lines': ['error', { max: 2 }],
