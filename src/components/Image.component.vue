@@ -1,21 +1,31 @@
 <template>
   <img
     alt="print image"
-    :src="printImage" />
+    :src="image" />
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'cImage',
-  setup() {
+  /* setup() {
     // eslint-disable-next-line global-require
-    const printImage = ref(require('../assets/images/yellow-print.png'));
+    const store = useStore();
+    console.log(store.state.image);
+    const image = ref(store.state.image);
 
     return {
-      printImage,
+      image: image
     };
+  }, */
+  mounted() {
+    this.$store.dispatch('loadImage');
+  },
+  computed: {
+    image() {
+      return this.$store.state.image;
+    },
   },
 });
 </script>

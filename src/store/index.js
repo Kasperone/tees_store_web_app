@@ -1,4 +1,5 @@
 import { createStore } from 'vuex';
+import axios from 'axios';
 
 export default createStore({
   state: {
@@ -24,6 +25,7 @@ export default createStore({
         name: 'Summary',
       },
     ],
+    image: '',
     imageSrc: [
       {
         // eslint-disable-next-line global-require
@@ -40,15 +42,29 @@ export default createStore({
       return findElem.map((elem) => elem.id);
     },
     getImagePath: (state) => state.imageSrc.map((item) => item.src),
+    getImage: (state) => state.image,
   },
   mutations: {
     ROUTER_NAMES(state, payload) {
       state.currentPageName = payload;
     },
+    SET_IMAGE(state, image) {
+      state.image = image;
+      console.log(image);
+    },
   },
   actions: {
     routerName({ commit }, payload) {
       commit('ROUTER_NAMES', payload);
+    },
+    loadImage({ commit }) {
+      axios
+        .get('https://picsum.photos/v2/list', {})
+        .then((response) => response.data)
+        .then((items) => {
+          const url = `https://picsum.photos/id/${items[0].id}/400/200`;
+          commit('SET_IMAGE', url);
+        });
     },
   },
   modules: {},

@@ -1,6 +1,8 @@
 import { createApp } from 'vue';
 // import { i18n } from './i18n/i18n';
 import { createI18n } from 'vue-i18n';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
 import pl from './i18n/pl.json';
 import App from './App.vue';
 import router from './router';
@@ -16,4 +18,5 @@ const i18n = createI18n({
 });
 
 createApp(App).use(store).use(router).use(i18n)
+  .use(VueAxios, axios)
   .mount('#app');
