@@ -24,19 +24,18 @@
 </template>
 
 <script>
-import { ref, defineComponent } from 'vue';
+import { ref, reactive, defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'cSelect',
   props: {
     text: {
       type: String,
-      required: true,
       default: 'Shipping',
     },
   },
   setup() {
-    const items = ref([
+    const items = reactive([
       { id: 1, label: 'DPD Courier' },
       { id: 2, label: 'UPS Courier' },
       { id: 3, label: 'DHL Courier' },
@@ -48,7 +47,11 @@ export default defineComponent({
       isOpen.value = !isOpen.value;
     };
 
-    return { items, isOpen, open };
+    return {
+      items,
+      isOpen,
+      open,
+    };
   },
 });
 </script>
