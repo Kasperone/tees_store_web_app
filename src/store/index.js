@@ -50,19 +50,21 @@ export default createStore({
     },
     SET_IMAGE(state, image) {
       state.image = image;
-      console.log(image);
     },
   },
   actions: {
     routerName({ commit }, payload) {
       commit('ROUTER_NAMES', payload);
     },
-    loadImage({ commit }) {
+    loadImage({ commit }, payload) {
       axios
         .get('https://picsum.photos/v2/list', {})
         .then((response) => response.data)
         .then((items) => {
-          const url = `https://picsum.photos/id/${items[0].id}/400/200`;
+          let url = `https://picsum.photos/id/${items[0].id}/400/200`;
+          if (payload) {
+            url = `https://picsum.photos/id/${items[0].id}/400/200/?blur=${payload}`;
+          }
           commit('SET_IMAGE', url);
         });
     },

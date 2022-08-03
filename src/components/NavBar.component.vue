@@ -7,7 +7,7 @@
         img-alt="tees logo" />
     </nav>
 
-    <img
+    <img class='max-w-fit'
       src="@/assets/images/line.svg"
       alt="horisontal line" />
   </section>

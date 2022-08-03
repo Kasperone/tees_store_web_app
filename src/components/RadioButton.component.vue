@@ -1,16 +1,15 @@
+<!-- eslint-disable -->
 <template>
   <div>
-    <input
-      type="radio"
-      :id="radioBtnValue"
-      name="buttonRadio"
-      :value="radioBtnValue"
-      @change="getValueBtn" />
+    <input type="radio"
+           :id="radioBtnValue"
+           name="buttonRadio"
+           :value="radioBtnValue"
+           @change="getValueBtn" />
 
     <span>
-      <label
-        :for="radioBtnValue"
-        class="inline-block ml-3">
+      <label :for="radioBtnValue"
+             class="inline-block ml-3">
         {{ radioBtnValue }}
       </label>
     </span>
