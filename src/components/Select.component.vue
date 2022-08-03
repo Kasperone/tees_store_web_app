@@ -29,8 +29,7 @@
 </template>
 
 <script>
-import { ref, defineComponent, computed } from 'vue';
-import { useStore } from 'vuex';
+import { ref, defineComponent } from 'vue';
 import cIcon from '@/components/Icon.component.vue';
 
 export default defineComponent({
@@ -40,6 +39,10 @@ export default defineComponent({
     text: {
       type: String,
       default: 'Shipping',
+    },
+    selectItems: {
+      type: Array,
+      required: true,
     },
   },
   setup(props, { emit }) {
@@ -52,15 +55,10 @@ export default defineComponent({
       isOpen.value = !isOpen.value;
     };
 
-    const store = useStore();
-
-    const selectItems = computed(() => store.state.selectItems);
-
     return {
       sendItemChange,
       isOpen,
       open,
-      selectItems,
     };
   },
 });
