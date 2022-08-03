@@ -8,6 +8,7 @@ module.exports = {
     ecmaVersion: 2020,
   },
   rules: {
+    'global-require': 0,
     'no-multiple-empty-lines': ['error', { max: 2 }],
     'no-param-reassign': [2, { props: false }],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',

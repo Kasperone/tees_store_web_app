@@ -2,55 +2,65 @@
   <div class="w-72">
     <button
       class="select-btn"
-      @click="open">
+      @click="open"
+      @keypress.enter="isOpen">
       <span class="select-label">{{ text }}</span>
 
-      <img
-        src="../assets/images/arrow-drop-down.png"
-        alt="arrow" />
+      <c-icon
+        :class="[
+          isOpen
+            ? 'rotate-180 transition-transform duration-500'
+            : 'rotate-0 transition-transform duration-500',
+        ]" />
     </button>
 
-    <div v-if="isOpen">
-      <ul class="select-list">
-        <li
-          class="select-list_element"
-          v-for="item in items"
-          :key="item.id">
-          {{ item.label }}
-        </li>
-      </ul>
-    </div>
+    <ul
+      v-if="isOpen"
+      class="select-list">
+      <li
+        @change="sendItemChange"
+        class="select-list_element"
+        v-for="item in selectItems"
+        :key="item.value">
+        {{ item.label }}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import { ref, reactive, defineComponent } from 'vue';
+import { ref, defineComponent, computed } from 'vue';
+import { useStore } from 'vuex';
+import cIcon from '@/components/Icon.component.vue';
 
 export default defineComponent({
   name: 'cSelect',
+  components: { cIcon },
   props: {
     text: {
       type: String,
       default: 'Shipping',
     },
   },
-  setup() {
-    const items = reactive([
-      { id: 1, label: 'DPD Courier' },
-      { id: 2, label: 'UPS Courier' },
-      { id: 3, label: 'DHL Courier' },
-    ]);
-
+  setup(props, { emit }) {
+    const sendItemChange = (event) => {
+      emit('selectItemChange', event.target.value);
+    };
     const isOpen = ref(false);
 
     const open = () => {
       isOpen.value = !isOpen.value;
     };
 
+    const store = useStore();
+
+    const selectItems = computed(() => store.state.selectItems);
+
     return {
-      items,
+      sendItemChange,
       isOpen,
       open,
+      selectItems,
     };
   },
 });
