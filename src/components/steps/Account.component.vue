@@ -6,8 +6,8 @@
 
 <script>
 import cAccountItems from '@/components/steps/components/AccountItems.component.vue';
-import {useStore} from 'vuex'
-import {computed} from 'vue'
+import { useStore } from 'vuex'
+import { computed } from 'vue'
 
 export default{
   name: 'cAccount',

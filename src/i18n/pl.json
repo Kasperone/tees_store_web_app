@@ -9,7 +9,7 @@
     "change of imprint":"Zmiana nadruku",
     "shipping information":"Dane do wysyłki",
     "summary":"Podsumowanie",
-    "t-shirt prewiew":"Podgląd na koszulce",
+    "t-shirt preview":"Podgląd na koszulce",
     "front":"Przód",
     "back":"Tył",
     "front and back":"Przód i tył",
@@ -32,6 +32,7 @@
     "shipping method":"Wybór dostawy",
     "email":"E-mail",
     "delivery":"Wysyłka",
-    "order":"Zamawiam"
+    "order":"Zamawiam",
+    "write on more then 10 words":"Wpisz nie więcej niz 10 słów"
 }
 

@@ -4,13 +4,13 @@
 
     <ul class='flex'>
       <li :class="[ currentPage === item.PageName ? 'text-color' :'' ]" 
-          class='text-center'>
+           class='text-center'>
         <span> {{item.name}} </span>    
        
       </li>
 
           <li :class="[index === itemLength - 1 ? 'hidden' : '']"   
-            class="flex w-24">
+              class="flex w-24">
             
             <span class='mr-1 m-auto min-w-4'>
               <img src='@/assets/images/Line.png' 
@@ -36,8 +36,8 @@
 
 <script>
 import cCircule from '@/components/steps/components/Circule.component.vue';
-import {useStore} from 'vuex'
-import {computed} from 'vue'
+import { useStore } from 'vuex'
+import { computed } from 'vue'
 
 export default{
   name: 'cAccountItems',

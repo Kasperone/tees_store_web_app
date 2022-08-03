@@ -4,16 +4,15 @@
 
 <script>
 import cAccount from '@/components/steps/Account.component.vue';
-import {useRouter} from 'vue-router'
-import {useStore} from 'vuex'
-import {computed, provide} from 'vue'
+import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
+import { computed, provide } from 'vue'
 
 export default{
     name: 'vHangeOfImprintView',
     components: {
          cAccount
     },
-
     setup(){
         
         const store = useStore()
@@ -21,10 +20,10 @@ export default{
         const currentPathObject = router.currentRoute.value;
         const currentPage = computed(() => store.getters.getPathNumber)
         const bulletNum = computed(() => store.state.routerNames)
-        store.dispatch('routerName', currentPathObject.name)
+        store.dispatch( 'routerName', currentPathObject.name )
 
-        provide('number', currentPage.value[0])
-        provide('bulletNum', bulletNum)
+        provide( 'number', currentPage.value[0] )
+        provide( 'bulletNum', bulletNum )
 
         return {
             router, 

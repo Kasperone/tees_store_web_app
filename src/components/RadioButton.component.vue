@@ -6,17 +6,17 @@
     :id='radioBtnValue'
     name='buttonRadio'
     :value='radioBtnValue'
-    @change='getValueBtn'/>
+    @change='getValueBtn'
+    />
 
-  <span>
     <label 
     :for="radioBtnValue"
     class='inline-block ml-3'>  
-    {{ radioBtnValue }}
+    {{ labelName }}
 
     </label>
 
-  </span>
+ 
 
   </div>
 </template>
@@ -27,14 +27,18 @@ export default{
   props: {
     radioBtnValue:{
         type:String,
-        default:'Yes'
+        
+  },
+  labelName:{
+    type:String,
+    required:true
   }
   },
 
 setup(props, {emit}){
 
-   function getValueBtn(payload) {
-   emit("radio-btn-value", payload.target.value);      
+   function getValueBtn(event) {
+   emit("get-btn-value", event.target.value);      
    }   
 
     return{ 

@@ -9,8 +9,9 @@
 
     <span>
       <img class='ml-px w-[0.725rem] h-[0.725] mt-[0.188rem]' 
-             src='@/assets/images/check-icon.png'
-             alt='icon-check'/>   
+           src='@/assets/images/check-icon.png'
+           alt='icon-check'
+           :class="[!taskChecked ? 'hidden' : '']"/>   
 
       </span>  
 
@@ -18,14 +19,14 @@
 </template>
 
 <script>
-import {inject, computed} from 'vue';
+import { inject, computed } from 'vue';
 
 export default{
   name: 'cCircule',
   props: {
       itemNumber: {
-        type:Number,
-        required:true,
+        type: Number,
+        required: true,
       }
   },
     setup(props){

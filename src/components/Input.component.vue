@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { ref, defineComponent } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'cInput',
@@ -27,16 +27,19 @@ export default defineComponent({
       type: String,
       default: '',
     },
+    value: {
+      type: String,
+    }
   },
-  setup(_, { emit }) {
-    const value = ref('');
+  setup(props, { emit }) {
+    
     const handleInput = (event) => {
-      emit(value.value = event.target.value);
+      emit('handleInput', event.target.value);
     };
 
     return {
       handleInput,
-      value,
+      
     };
   },
 });

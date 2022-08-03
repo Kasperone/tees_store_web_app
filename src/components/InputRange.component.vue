@@ -6,7 +6,7 @@
         </label>
             <div>
 
-                 <input type='range'    
+                <input type='range'    
                         :min='minValue'
                         :max='maxValue'
                         :value='stepValue'

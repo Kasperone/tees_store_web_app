@@ -1,5 +1,6 @@
 <template>
-  <button :class='buttonClass'>{{ text }}</button>
+  <button :class="[btnColor ? 'secondary'   : '', 'primary']">{{ text }}</button>
+  
 </template>
 
 <script>
@@ -18,6 +19,9 @@ export default defineComponent({
       validator(value) {
         return ['primary', 'secondary'].includes(value);
       },
+    },
+    btnColor: {
+      type:Boolean,
     },
   },
   setup(props) {

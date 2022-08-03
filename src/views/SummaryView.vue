@@ -3,9 +3,9 @@
 </template>
 <script>
 import cAccount from '@/components/steps/Account.component.vue';
-import {useRouter} from 'vue-router'
-import {useStore} from 'vuex'
-import {computed, provide} from 'vue'
+import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
+import { computed, provide } from 'vue'
 
 export default{
     name: 'vSummaryView',
@@ -23,7 +23,7 @@ export default{
 
         const currentPage = computed(() => store.getters.getPathNumber)
 
-        provide('number', currentPage.value[0])
+        provide( 'number', currentPage.value[0] )
 
         return {
             router, 
