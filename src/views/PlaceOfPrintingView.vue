@@ -1,5 +1,7 @@
 <template>
-  <c-Account />
+  <div>
+    <c-Account />
+  </div>
 </template>
 
 <script>

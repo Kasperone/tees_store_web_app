@@ -26,11 +26,25 @@ export default createStore({
     ],
     imageSrc: [
       {
-        // eslint-disable-next-line global-require
         src: require('@/assets/images/check-icon.png'),
       },
     ],
     currentPageName: 'placeOfPrintingView',
+
+    selectItems: [
+      {
+        value: 1,
+        label: 'DPD Courier',
+      },
+      {
+        value: 2,
+        label: 'UPS Courier',
+      },
+      {
+        value: 3,
+        label: 'DHL Courier',
+      },
+    ],
   },
   getters: {
     getPathNumber: (state) => {

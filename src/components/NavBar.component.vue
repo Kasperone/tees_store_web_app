@@ -9,7 +9,7 @@
 
     <img
       src="@/assets/images/line.svg"
-      alt="horisontal line" />
+      alt="horizontal line" />
   </section>
 </template>
 
