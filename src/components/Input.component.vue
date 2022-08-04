@@ -1,12 +1,11 @@
 <template>
-  <label :for='label'>
-
-    <input :id='id'
-           :value='value'
-           :placeholder='placeholder'
-           @input='handleInput' />
+  <label :for="label">
+    <input
+      :id="id"
+      :value="value"
+      :placeholder="placeholder"
+      @input="handleInput" />
   </label>
-
 </template>
 
 <script>
@@ -29,17 +28,16 @@ export default defineComponent({
     },
     value: {
       type: String,
-    }
+      default: '',
+    },
   },
   setup(props, { emit }) {
-    
     const handleInput = (event) => {
       emit('handleInput', event.target.value);
     };
 
     return {
       handleInput,
-      
     };
   },
 });

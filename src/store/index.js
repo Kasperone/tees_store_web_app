@@ -27,19 +27,19 @@ export default createStore({
     tshirtPriceCover: [
       {
         name: 'front',
-        id:'1',
-        price: 10
+        id: 1,
+        price: 10,
       },
       {
         name: 'back',
-        id:'2',
-        price: 20
+        id: 2,
+        price: 20,
       },
       {
-        name:'both',
-        id:'3',
-        price: 30
-      }
+        name: 'both',
+        id: 3,
+        price: 30,
+      },
     ],
     imageSrc: [
       {
@@ -47,77 +47,62 @@ export default createStore({
       },
     ],
     currentPageName: 'placeOfPrintingView',
-    radioBtn: '',
+    radioBtn: null,
     tshirtPrices: 60,
-    inputPromoPrice: '',
+    inputPromoCode: '',
     isPromoBtnActive: false,
     promoDiscount: 20,
   },
   getters: {
     getPathNumber: (state) => {
-      const findElem = state.routerNames.filter((elem) => elem.PageName === state.currentPageName);
+      const findElem = state.routerNames.filter(
+        (elem) => elem.PageName === state.currentPageName,
+      );
       return findElem.map((elem) => elem.id);
     },
 
     getImagePath: (state) => state.imageSrc.map((item) => item.src),
 
     getTshirtCoverPrice: (state) => {
-      const getTshirtPrice = state.tshirtPriceCover.filter(elem=>elem.id === state.radioBtn)
-      return  getTshirtPrice.map(elem=>elem.price)
+      const getTshirtPrice = state.tshirtPriceCover.filter(
+        (elem) => elem.id === state.radioBtn,
+      );
+      return getTshirtPrice.map((elem) => elem.price);
     },
 
-    getTshirtPrice: (state, getters) =>  {
-      if(state.isPromoBtnActive === true){
-        const persentage = (state.promoDiscount / 100) * (state.tshirtPrices + getters.getTshirtCoverPrice[0])
-        return (state.tshirtPrices - persentage) + getters.getTshirtCoverPrice[0]
+    getTshirtPrice: (state, getters) => {
+      if (state.isPromoBtnActive) {
+        const persentage =
+          (state.promoDiscount / 100) *
+          (state.tshirtPrices + getters.getTshirtCoverPrice[0]);
+        return state.tshirtPrices - persentage + getters.getTshirtCoverPrice[0];
       }
 
-      if(getters.getTshirtCoverPrice.length === 0){
-        return 0
-      }else{
-        return state.tshirtPrices + getters.getTshirtCoverPrice[0] 
+      if (getters.getTshirtCoverPrice.length === 0) {
+        return 0;
       }
+      return state.tshirtPrices + getters.getTshirtCoverPrice[0];
     },
 
-    getInputPromoPrice: (state) => state.inputPromoPrice.length,
+    getInputPromoPrice: (state) => state.inputPromoCode.length,
 
-    getIsPromoCodeActive: (state) => state.inputPromoPrice.length > 0 && state.isPromoBtnActive === true ? true : false,
-
+    getIsPromoCodeActive: (state) =>
+      state.inputPromoCode.length > 0 && state.isPromoBtnActive,
   },
   mutations: {
     ROUTER_NAMES(state, payload) {
       state.currentPageName = payload;
     },
-    ADD_RADIO_BTN(state, payload){
-      state.radioBtn = payload
+    ADD_RADIO_BTN(state, payload) {
+      state.radioBtn = payload;
     },
-    ADD_INPUT_PROMO_PRICE(state, payload){
-      state.inputPromoPrice = payload
+    ADD_INPUT_PROMO_PRICE(state, payload) {
+      state.inputPromoCode = payload;
     },
-    ADD_APPLY_PROMO_CODE(state, payload){
-      state.isPromoBtnActive = payload
-    }
+    ADD_APPLY_PROMO_CODE(state, payload) {
+      state.isPromoBtnActive = payload;
+    },
   },
-  actions: {
-    routerName({ commit }, payload) {
-      commit('ROUTER_NAMES', payload);
-    },
-    valueBtnFront({commit}, payload){
-      console.log(payload , 'action')
-      commit('ADD_RADIO_BTN', payload)
-    },
-    valueBtnBack({commit}, payload){
-      commit('ADD_RADIO_BTN', payload)
-    },
-    valueBtnBoth({commit}, payload){
-      commit('ADD_RADIO_BTN', payload)
-    },
-    handleInputPromoPrice({commit}, payload){
-      commit('ADD_INPUT_PROMO_PRICE', payload)
-    },
-    applyPromoCode({commit}, payload){
-      commit('ADD_APPLY_PROMO_CODE', payload)
-    }
-  },
+  actions: {},
   modules: {},
 });

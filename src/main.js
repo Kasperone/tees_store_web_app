@@ -15,8 +15,4 @@ const i18n = createI18n({
   },
 });
 
-createApp(App)
-  .use(store)
-  .use(router)
-  .use(i18n)
-  .mount('#app');
+createApp(App).use(store).use(router).use(i18n).mount('#app');

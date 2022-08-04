@@ -1,6 +1,7 @@
 <template>
-  <button :class="[btnColor ? 'secondary'   : '', 'primary']">{{ text }}</button>
-  
+  <button :class="[colorPrimary ? 'secondary' : '', 'primary']">
+    {{ text }}
+  </button>
 </template>
 
 <script>
@@ -20,8 +21,9 @@ export default defineComponent({
         return ['primary', 'secondary'].includes(value);
       },
     },
-    btnColor: {
-      type:Boolean,
+    colorPrimary: {
+      type: Boolean,
+      default: false,
     },
   },
   setup(props) {
@@ -36,7 +38,6 @@ export default defineComponent({
     };
   },
 });
-
 </script>
 
 <style scoped>

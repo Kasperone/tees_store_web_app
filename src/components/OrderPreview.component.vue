@@ -1,41 +1,50 @@
 <template>
-  <section class='px-11 w-[32rem] h-[48.25rem] bg-brand-blue-1 rounded-[0.625rem]'>
-    <c-title class='pt-6 pb-5'
-             text='Order preview' />
+  <section
+    class="px-11 w-[32rem] h-[48.25rem] bg-brand-blue-1 rounded-[0.625rem]">
+    <c-title
+      class="pt-6 pb-5"
+      :text="$t('order preview')" />
 
-    <c-image class='mb-2.5' />
+    <c-image class="mb-2.5" />
 
-    <c-title type='secondary'
-             text='Promo code:'
-             v-if='!getIsPromoCodeActive' />
+    <c-title
+      class="secondary"
+      :text="$t('promo code')"
+      v-if="!getIsPromoCodeActive" />
 
-    <div class='flex w-full space-x-10'
-         v-if='!getIsPromoCodeActive'>
-   
-      <c-input id='promo' 
-               @handle-input='inputPromoPrice'
-               class='relative'
-      />
-      <c-action-button text='Apply'
-                       @click='applyPromoCode'
-                       :disabled='promoPriceLength <= 3 || promoPriceLength >= 11'/>
+    <div
+      class="flex w-full space-x-10"
+      v-if="!getIsPromoCodeActive">
+      <c-input
+        @handle-input="inputPromoPrice"
+        class="relative" />
 
+      <c-action-button
+        :text="$t('apply')"
+        @click="applyPromoCode"
+        :disabled="promoPriceLength <= 3 || promoPriceLength >= 11" />
     </div>
 
-     <div v-if='promoPriceLength > 10' 
-           class='text-red-500 absolute '>
-          {{$t("write on more then 10 words")}} 
+    <div
+      v-if="promoPriceLength > 10"
+      class="text-red-500 absolute">
+      {{ $t('write words') }}
+    </div>
 
+    <div class="flex flex-row justify-between pt-[3.125rem]">
+      <span class="font-medium text-sm text-gray-700">{{
+        $t('place of printing')
+      }}</span>
+      <div class="font-medium text-xl text-gray-800">
+        <span>{{ coverPrice }}</span> {{ currency }}
       </div>
-
-    <div class='flex flex-row justify-between pt-[3.125rem]'>
-      <span class='font-medium text-sm text-gray-700'>Print Placement</span>
-      <div class='font-medium text-xl text-gray-800'><span>{{coverPrice}}</span> {{ currency }}</div>
     </div>
 
-    <div class='flex flex-row justify-between mt-5'>
-      <span class='text-xl'>Final price</span>
-      <div class='font-medium text-xl text-gray-800'><span>{{priceValue}}</span> {{ currency }}</div>
+    <div class="flex flex-row justify-between mt-5">
+      <span class="text-xl">{{ $t('final price') }}</span>
+      <div class="font-medium text-xl text-gray-800">
+        <span>{{ priceValue }}</span> {{ currency }}
+      </div>
     </div>
   </section>
 </template>
@@ -45,8 +54,8 @@ import cActionButton from '@/components/ActionButton.component.vue';
 import cTitle from '@/components/Title.component.vue';
 import cInput from '@/components/Input.component.vue';
 import cImage from '@/components/Image.component.vue';
-import {useStore} from 'vuex'
-import { computed } from 'vue'
+import { useStore } from 'vuex';
+import { computed } from 'vue';
 
 export default {
   name: 'cOrderPreview',
@@ -62,31 +71,32 @@ export default {
     },
     coverPrice: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
-  setup(){
-
+  setup() {
     const store = useStore();
     const promoPriceLength = computed(() => store.getters.getInputPromoPrice);
-    const getIsPromoCodeActive = computed(() => store.getters.getIsPromoCodeActive)
-    const isRadioBtnEmpty = computed(() => store.state.radioBtn)
-   
-    function inputPromoPrice(payload){
-      store.dispatch('handleInputPromoPrice', payload) 
+    const getIsPromoCodeActive = computed(
+      () => store.getters.getIsPromoCodeActive,
+    );
+    const isRadioBtnEmpty = computed(() => store.state.radioBtn);
+
+    function inputPromoPrice(payload) {
+      store.commit('ADD_INPUT_PROMO_PRICE', payload);
     }
 
-    function applyPromoCode(){
-      store.dispatch('applyPromoCode', true) 
+    function applyPromoCode() {
+      store.commit('ADD_APPLY_PROMO_CODE', true);
     }
 
-    return{ 
+    return {
       inputPromoPrice,
       applyPromoCode,
       promoPriceLength,
       getIsPromoCodeActive,
-      isRadioBtnEmpty
-    }
-  }
+      isRadioBtnEmpty,
+    };
+  },
 };
 </script>

@@ -1,36 +1,35 @@
 <template>
-   <c-Account/>
+  <c-Account />
 </template>
 
 <script>
 import cAccount from '@/components/steps/Account.component.vue';
-import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
-import { computed, provide } from 'vue'
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+import { computed, provide } from 'vue';
 
-export default{
-    name: 'vHangeOfImprintView',
-    components: {
-         cAccount
-    },
-    setup(){
-        
-        const store = useStore()
-        const router = useRouter();
-        const currentPathObject = router.currentRoute.value;
-        const currentPage = computed(() => store.getters.getPathNumber)
-        const bulletNum = computed(() => store.state.routerNames)
-        store.dispatch( 'routerName', currentPathObject.name )
+export default {
+  name: 'vHangeOfImprintView',
+  components: {
+    cAccount,
+  },
+  setup() {
+    const store = useStore();
+    const router = useRouter();
+    const currentPathObject = router.currentRoute.value;
+    const currentPage = computed(() => store.getters.getPathNumber);
+    const bulletNum = computed(() => store.state.routerNames);
+    store.commit('ROUTER_NAMES', currentPathObject.name);
 
-        provide( 'number', currentPage.value[0] )
-        provide( 'bulletNum', bulletNum )
+    provide('number', currentPage.value[0]);
+    provide('bulletNum', bulletNum);
 
-        return {
-            router, 
-            currentPathObject, 
-            currentPage,
-            bulletNum
-         }
-    }
-}
+    return {
+      router,
+      currentPathObject,
+      currentPage,
+      bulletNum,
+    };
+  },
+};
 </script>
