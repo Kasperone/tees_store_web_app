@@ -46,7 +46,7 @@
         <cActionBtn
           @click="$router.push('hangeofImprintView')"
           :text="$t('next')"
-          :disabled="!tshirtCoverPrice"
+          :disabled="tshirtCoverPrice === undefined"
           :color-primary="true" />
       </section>
     </div>
@@ -94,7 +94,6 @@ export default {
     const currentPage = computed(() => store.getters.getPathNumber);
 
     store.commit('ROUTER_NAMES', currentPathObject.name);
-    console.log(currentPathObject.name);
     provide('number', currentPage.value[0]);
 
     function getValueBtnFront(payload) {
