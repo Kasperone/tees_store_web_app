@@ -1,7 +1,11 @@
 <template>
+<<<<<<< HEAD
   <button :class="[colorPrimary ? 'secondary' : '', 'primary']">
     {{ text }}
   </button>
+=======
+  <button :class="buttonClass">{{ text }}</button>
+>>>>>>> develop
 </template>
 
 <script>

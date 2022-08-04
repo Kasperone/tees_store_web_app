@@ -11,22 +11,32 @@
             :text="$t('place of printing')"
             class="" />
         </div>
-        <div><cTitle :text="$t('additional settings')" /></div>
+        <div>
+          <cTitle :text="$t('additional settings')" />
+        </div>
         <div>
           <cTitletext :text="$t('basic information')" />
-          <div><cTitle :text="$t('first and last name')" /></div>
-          <div><cTitletext :text="$t('town street building')" /></div>
-          <div><cTitle :text="$t('email')" /></div>
+          <div>
+            <cTitle :text="$t('first and last name')" />
+          </div>
+          <div>
+            <cTitletext :text="$t('town street building')" />
+          </div>
+          <div>
+            <cTitle :text="$t('email')" />
+          </div>
         </div>
 
-        <div><cTitletext :text="$t('final price')" /></div>
+        <div>
+          <cTitletext :text="$t('final price')" />
+        </div>
       </section>
     </div>
   </main>
 </template>
 <script>
 import cAccount from '@/components/steps/Account.component.vue';
-import cTitle from '@/components/Title.component';
+import cTitle from '@/components/Title.component.vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { computed, provide } from 'vue';

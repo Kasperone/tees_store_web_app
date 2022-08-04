@@ -13,6 +13,7 @@ export default {
   components: {
     cAccount,
   },
+<<<<<<< HEAD
   setup() {
     const store = useStore();
     const router = useRouter();
@@ -24,6 +25,20 @@ export default {
     provide('number', currentPage.value[0]);
     provide('bulletNum', bulletNum);
 
+=======
+
+  setup() {
+    const store = useStore();
+    const router = useRouter();
+    const currentPathObject = router.currentRoute.value;
+    const currentPage = computed(() => store.getters.getPathNumber);
+    const bulletNum = computed(() => store.state.routerNames);
+    store.dispatch('routerName', currentPathObject.name);
+
+    provide('number', currentPage.value[0]);
+    provide('bulletNum', bulletNum);
+
+>>>>>>> develop
     return {
       router,
       currentPathObject,

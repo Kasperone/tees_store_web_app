@@ -19,7 +19,11 @@ export default {
     const router = useRouter();
     const currentPathObject = router.currentRoute.value;
 
+<<<<<<< HEAD
     store.commit('ROUTER_NAMES', currentPathObject.name);
+=======
+    store.dispatch('routerName', currentPathObject.name);
+>>>>>>> develop
 
     const currentPage = computed(() => store.getters.getPathNumber);
 
