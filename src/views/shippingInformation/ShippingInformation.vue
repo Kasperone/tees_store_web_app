@@ -17,6 +17,7 @@ export default {
   setup() {
     const store = useStore();
     const router = useRouter();
+
     const currentPathObject = router.currentRoute.value;
 
     store.dispatch('routerName', currentPathObject.name);

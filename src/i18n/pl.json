@@ -9,7 +9,7 @@
   "change of imprint": "Zmiana nadruku",
   "shipping information": "Dane do wysyłki",
   "summary": "Podsumowanie",
-  "t-shirt prewiew": "Podgląd na koszulce",
+  "t-shirt preview": "Podgląd na koszulce",
   "front": "Przód",
   "back": "Tył",
   "front and back": "Przód i tył",
@@ -32,6 +32,23 @@
   "shipping method": "Wybór dostawy",
   "email": "E-mail",
   "delivery": "Wysyłka",
-  "order": "Zamawiam"
+  "order": "Zamawiam",
+  "write words": "Wpisz nie więcej niz 10 słów",
+  "promo code": "Kod Promocyjny",
+  "apply": "Wykonaj",
+  "both": "Obie strony",
+  "additional settings": "Dodatkowe ustwienia",
+  "basic information": "Inforamcje podstawowe",
+  "Name and Surname": "Imię i nazwisko",
+  "Full name": "Imię i nazwisko",
+  "Address": "Adres",
+  "ZIP code": "Kod pocztowy",
+  "City / street / apartment number": "Miasto / ulica / numer mieszkania",
+  "Shipping": "Dostawa",
+  "Email address": "Adres email",
+  "Enter your email address": "Podaj adres email",
+  "DPD Courier": "Kurier DPD",
+  "UPS Courier": "Kurier UPS",
+  "DHL Courier": "Kurier DHL"
 }
 

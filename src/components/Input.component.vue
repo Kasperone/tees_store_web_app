@@ -2,40 +2,42 @@
   <label :for="label">
     <input
       :id="id"
-      :value="value"
       :placeholder="placeholder"
+      :value="value"
       @input="handleInput" />
   </label>
 </template>
 
 <script>
-import { ref, defineComponent } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'cInput',
   props: {
     label: {
       type: String,
-      default: '',
+      default: 'null',
     },
     id: {
       type: String,
-      default: '',
+      default: 'null',
     },
     placeholder: {
+      type: String,
+      default: 'placeholder',
+    },
+    value: {
       type: String,
       default: '',
     },
   },
-  setup(_, { emit }) {
-    const value = ref('');
+  setup(props, { emit }) {
     const handleInput = (event) => {
-      emit((value.value = event.target.value));
+      emit(('inputValue', event.target.value));
     };
 
     return {
       handleInput,
-      value,
     };
   },
 });
@@ -46,7 +48,7 @@ export default defineComponent({
 
 @layer components {
   input {
-    @apply w-full h-14 bg-gray-300 rounded-xl;
+    @apply w-full h-14 p-3.5 bg-gray-300 rounded-xl;
   }
 }
 </style>

@@ -1,21 +1,22 @@
 <template>
   <img
-    alt="print image"
-    :src="printImage" />
+    :alt="altName"
+    :src="imgSrc" />
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'cImage',
-  setup() {
-    // eslint-disable-next-line global-require
-    const printImage = ref(require('../assets/images/yellow-print.png'));
-
-    return {
-      printImage,
-    };
+  props: {
+    altName: {
+      type: String,
+      default: 'image',
+    },
+    imgSrc: {
+      type: String,
+    },
   },
 });
 </script>
