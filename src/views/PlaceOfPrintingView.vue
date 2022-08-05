@@ -1,9 +1,8 @@
 <template>
-<<<<<<< HEAD
-  <main class="flex gap-5 justify-center">
+  <main class="flex gap-5 justify-center mt-[2.75rem]">
     <div
       class="w-[47rem] h-[48.25rem] bg-brand-blue-1 rounded-[0.625rem] relative">
-      <nav class="mt-[2.125rem] absolute">
+      <nav class="mt-[2.125rem] absolute pr-4">
         <c-Account />
       </nav>
 
@@ -58,22 +57,15 @@
         :cover-price="tshirtCoverPrice" />
     </div>
   </main>
-=======
-  <div>
-    <c-Account />
-  </div>
->>>>>>> develop
 </template>
 
 <script>
 import cAccount from '@/components/steps/Account.component.vue';
-<<<<<<< HEAD
 import cTitle from '@/components/Title.component.vue';
 import cRadioBtn from '@/components/RadioButton.component.vue';
 import cActionBtn from '@/components/ActionButton.component.vue';
 import cOrderPrv from '@/components/OrderPreview.component.vue';
-=======
->>>>>>> develop
+
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { computed, provide } from 'vue';
@@ -82,20 +74,16 @@ export default {
   name: 'vPlaceOfPrintingView',
   components: {
     cAccount,
-<<<<<<< HEAD
     cTitle,
     cRadioBtn,
     cActionBtn,
     cOrderPrv,
-=======
->>>>>>> develop
   },
 
   setup() {
     const store = useStore();
     const router = useRouter();
     const currentPathObject = router.currentRoute.value;
-<<<<<<< HEAD
     const tshirtPriceCover = computed(() => store.state.tshirtPriceCover);
     const tshirtPrice = computed(() => store.getters.getTshirtPrice);
     const tshirtCoverPrice = computed(
@@ -120,20 +108,13 @@ export default {
     function getValueBtnBoth(payload) {
       store.commit('ADD_RADIO_BTN', Number(payload));
     }
-=======
-
-    store.dispatch('routerName', currentPathObject.name);
-
-    const currentPage = computed(() => store.getters.getPathNumber);
 
     provide('number', currentPage.value[0]);
->>>>>>> develop
 
     return {
       router,
       currentPathObject,
       currentPage,
-<<<<<<< HEAD
       tshirtPrice,
       tshirtCoverPrice,
       getIsPromoCodeActive,
@@ -141,8 +122,6 @@ export default {
       getValueBtnFront,
       getValueBtnBack,
       getValueBtnBoth,
-=======
->>>>>>> develop
     };
   },
 };

@@ -13,16 +13,18 @@
       v-if="!getIsPromoCodeActive" />
 
     <div
-      class="flex w-full space-x-10"
+      class="flex w-full gap-10"
       v-if="!getIsPromoCodeActive">
       <c-input
         @handle-input="inputPromoPrice"
-        class="relative" />
+        class="relative"
+        :secandaryStyle="true" />
 
       <c-action-button
         :text="$t('apply')"
         @click="applyPromoCode"
-        :disabled="promoPriceLength <= 3 || promoPriceLength >= 11" />
+        :disabled="promoPriceLength <= 3 || promoPriceLength >= 11"
+        :appl-btn="true" />
     </div>
 
     <div

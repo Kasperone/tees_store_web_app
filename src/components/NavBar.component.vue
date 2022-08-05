@@ -9,11 +9,7 @@
 
     <img
       src="@/assets/images/line.svg"
-<<<<<<< HEAD
       alt="horisontal line" />
-=======
-      alt="horizontal line" />
->>>>>>> develop
   </section>
 </template>
 

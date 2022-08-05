@@ -21,6 +21,7 @@ export default {
   props: {
     radioBtnValue: {
       type: Number,
+      default: null,
     },
     labelName: {
       type: String,

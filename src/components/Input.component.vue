@@ -4,7 +4,8 @@
       :id="id"
       :value="value"
       :placeholder="placeholder"
-      @input="handleInput" />
+      @input="handleInput"
+      :class="[secondaryStyle ? 'input__code' : '']" />
   </label>
 </template>
 
@@ -30,14 +31,14 @@ export default defineComponent({
       type: String,
       default: '',
     },
+    secondaryStyle: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, { emit }) {
     const handleInput = (event) => {
-<<<<<<< HEAD
       emit('handleInput', event.target.value);
-=======
-      emit((value.value = event.target.value));
->>>>>>> develop
     };
 
     return {
@@ -53,6 +54,9 @@ export default defineComponent({
 @layer components {
   input {
     @apply w-full h-14 bg-gray-300 rounded-xl;
+  }
+  .input__code {
+    @apply w-[16.875rem] h-[3.688rem];
   }
 }
 </style>
