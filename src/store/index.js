@@ -63,7 +63,7 @@ export default createStore({
 
     getImagePath: (state) => state.imageSrc.map((item) => item.src),
 
-    getTshirtCoverPrice: (state, getters) => {
+    getTshirtCoverPrice: (state) => {
       const getTshirtPrice = state.tshirtPriceCover.filter(
         (elem) => elem.id === state.radioBtn,
       );

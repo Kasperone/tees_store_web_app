@@ -50,9 +50,11 @@
           <cTitle
             class="mt-[22.125rem] absolute text-gray-600"
             :text="$t('final price')" />
+
           <span class="mt-[22.300rem] absolute ml-[9rem]"
-            >{{ finalPrice }} euro</span
-          >
+            ><span>{{ finalPrice }} </span>
+            <span class="ml-2"><c-DisplayText :text="$t('euro')" /></span>
+          </span>
         </div>
       </section>
 
@@ -80,6 +82,7 @@
 import cAccount from '@/components/steps/Account.component.vue';
 import cTitle from '@/components/Title.component.vue';
 import cActionBtn from '@/components/ActionButton.component.vue';
+import cDisplayText from '@/components/DisplayTextData.component';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { computed, provide } from 'vue';
@@ -90,6 +93,7 @@ export default {
     cAccount,
     cTitle,
     cActionBtn,
+    cDisplayText,
   },
 
   setup() {

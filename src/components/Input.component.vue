@@ -5,7 +5,7 @@
       :value="value"
       :placeholder="placeholder"
       @input="handleInput"
-      :class="[secondaryStyle ? 'input__code' : '']" />
+      :class="[secondaryStyle ? '' : 'input__code']" />
   </label>
 </template>
 

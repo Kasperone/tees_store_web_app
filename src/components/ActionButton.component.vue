@@ -1,10 +1,10 @@
 <template>
   <button
-    :class="[
-      colorPrimary ? 'secondary' : '',
-      routeBtn ? 'primary' : '',
-      applBtn ? 'apply__btn ' : '',
-    ]">
+    :class="{
+      secondary: colorPrimary,
+      primary: routeBtn,
+      apply__btn: applBtn,
+    }">
     {{ text }}
   </button>
 </template>
@@ -66,7 +66,7 @@ export default defineComponent({
     @apply bg-blue-600 text-white;
   }
   .apply__btn {
-    @apply text-blue-600 border-2 border-blue-600 w-[7.813rem] h-[3.60rem];
+    @apply text-blue-600 border-2 border-blue-600 h-[3.60rem];
   }
 }
 </style>

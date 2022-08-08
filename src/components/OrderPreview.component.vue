@@ -13,7 +13,7 @@
       v-if="!getIsPromoCodeActive" />
 
     <div
-      class="flex w-full gap-10"
+      class="flex gap-8"
       v-if="!getIsPromoCodeActive">
       <c-input
         @handle-input="inputPromoPrice"
