@@ -97,21 +97,21 @@ export default defineComponent({
   setup() {
     const store = useStore();
 
-    function inputFullName(payload) {
+    const inputFullName = (payload) => {
       store.commit('INPUT_FULL_NAME', payload.target.value);
-    }
+    };
 
-    function inputAddress(payload) {
+    const inputAddress = (payload) => {
       store.commit('INPUT_ADDRESS', payload.target.value);
-    }
+    };
 
-    function inputZipCode(payload) {
+    const inputZipCode = (payload) => {
       store.commit('INPUT_ZIP_CODE', payload.target.value);
-    }
+    };
 
-    function inputEmail(payload) {
+    const inputEmail = (payload) => {
       store.commit('INPUT_EMAIL', payload.target.value);
-    }
+    };
 
     const currentPage = computed(() => store.getters.getPathNumber);
 

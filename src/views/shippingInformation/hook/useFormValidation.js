@@ -4,7 +4,7 @@ import useValidators from '@/views/shippingInformation/hook/validators';
 const errors = reactive({});
 
 export default function useFormValidation() {
-  const { isEmpty, minLength, isZipCode, isEmail } = useValidators();
+  const { isEmpty, isName, minLength, isZipCode, isEmail } = useValidators();
 
   const removeValidationMessage = (fieldNameProps) => {
     setTimeout(() => {
@@ -16,6 +16,14 @@ export default function useFormValidation() {
     errors[fieldName] = !fieldValue
       ? isEmpty(fieldName, fieldValue)
       : minLength(fieldName, fieldValue, 2);
+
+    removeValidationMessage(fieldName);
+  };
+
+  const validateNameCharacters = (fieldName, fieldValue) => {
+    errors[fieldName] = !fieldValue
+      ? isEmpty(fieldName, fieldValue)
+      : isName(fieldName, fieldValue);
 
     removeValidationMessage(fieldName);
   };
@@ -50,5 +58,6 @@ export default function useFormValidation() {
     validateAddressField,
     validateEmailField,
     validateZipCodeField,
+    validateNameCharacters,
   };
 }

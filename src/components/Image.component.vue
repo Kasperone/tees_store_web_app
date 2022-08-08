@@ -1,22 +1,38 @@
 <template>
-  <img
-    :alt="altName"
-    :src="imgSrc" />
+  <div>
+    <img
+      alt="print image"
+      :src="image" />
+  </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, computed, onMounted } from 'vue';
+import { useStore } from 'vuex';
 
 export default defineComponent({
   name: 'cImage',
   props: {
-    altName: {
-      type: String,
-      default: 'image',
+    randomId: {
+      type: Number,
+      required: true,
     },
-    imgSrc: {
-      type: String,
-    },
+  },
+  setup(props) {
+    const store = useStore();
+    const image = computed(() => store.state.image);
+
+    onMounted(() => {
+      store.dispatch('loadImage', {
+        id: props.randomId,
+        blur: 0,
+        grayscale: 0,
+      });
+    });
+
+    return {
+      image,
+    };
   },
 });
 </script>
