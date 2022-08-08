@@ -1,20 +1,35 @@
 <template>
   <img
     alt="print image"
-    :src="printImage" />
+    :src="image" />
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue';
+import { defineComponent, computed, onMounted } from 'vue';
+import { useStore } from 'vuex';
 
 export default defineComponent({
   name: 'cImage',
-  setup() {
-    // eslint-disable-next-line global-require
-    const printImage = ref(require('../assets/images/yellow-print.png'));
+  props: {
+    randomId: {
+      type: Number,
+      required: true,
+    },
+  },
+  setup(props) {
+    const store = useStore();
+    const image = computed(() => store.state.image);
+
+    onMounted(() => {
+      store.dispatch('loadImage', {
+        id: props.randomId,
+        blur: 0,
+        grayscale: 0,
+      });
+    });
 
     return {
-      printImage,
+      image,
     };
   },
 });

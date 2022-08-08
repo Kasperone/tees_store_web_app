@@ -45,6 +45,10 @@ export default createStore({
         label: 'DHL Courier',
       },
     ],
+    inputFullName: '',
+    inputAddress: '',
+    inputZipCode: '',
+    inputEmail: '',
   },
   getters: {
     getPathNumber: (state) => {
@@ -58,6 +62,18 @@ export default createStore({
   mutations: {
     ROUTER_NAMES(state, payload) {
       state.currentPageName = payload;
+    },
+    INPUT_FULL_NAME(state, payload) {
+      state.inputFullName = payload;
+    },
+    INPUT_ADDRESS(state, payload) {
+      state.inputAddress = payload;
+    },
+    INPUT_ZIP_CODE(state, payload) {
+      state.inputZipCode = payload;
+    },
+    INPUT_EMAIL(state, payload) {
+      state.inputEmail = payload;
     },
   },
   actions: {
