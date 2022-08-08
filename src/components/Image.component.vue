@@ -1,7 +1,7 @@
 <template>
-  <img alt="print image"
-       :src="image"
-  />
+  <img
+    alt="print image"
+    :src="image" />
 </template>
 
 <script>
@@ -10,12 +10,22 @@ import { useStore } from 'vuex';
 
 export default defineComponent({
   name: 'cImage',
-  setup() {
+  props: {
+    randomId: {
+      type: Number,
+      required: true,
+    },
+  },
+  setup(props) {
     const store = useStore();
     const image = computed(() => store.state.image);
 
     onMounted(() => {
-      store.dispatch('loadImage');
+      store.dispatch('loadImage', {
+        id: props.randomId,
+        blur: 0,
+        grayscale: 0,
+      });
     });
 
     return {

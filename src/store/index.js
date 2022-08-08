@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export default createStore({
   state: {
+    Id: 0,
     routerNames: [
       {
         PageName: 'placeOfPrintingView',
@@ -33,6 +34,7 @@ export default createStore({
       },
     ],
     currentPageName: 'placeOfPrintingView',
+    photosIdContainer: [],
   },
   getters: {
     getPathNumber: (state) => {
@@ -51,22 +53,31 @@ export default createStore({
     SET_IMAGE(state, image) {
       state.image = image;
     },
+    SET_ID(state, payload) {
+      state.photosIdContainer.push(payload);
+    },
   },
   actions: {
     routerName({ commit }, payload) {
       commit('ROUTER_NAMES', payload);
     },
-    loadImage({ commit }, payload) {
-      axios
-        .get('https://picsum.photos/v2/list', {})
-        .then((response) => response.data)
-        .then((items) => {
-          let url = `https://picsum.photos/id/${items[0].id}/400/200`;
-          if (payload) {
-            url = `https://picsum.photos/id/${items[0].id}/400/200/?blur=${payload}`;
-          }
-          commit('SET_IMAGE', url);
-        });
+    async loadImage({ commit }, payload) {
+      try {
+        let url = `https://picsum.photos/id/${payload.id}/600/250`;
+        if (payload.blur) {
+          url += `?blur=${payload.blur}`;
+        }
+        if (payload.grayscale) {
+          url += payload.blur ? '&grayscale' : '?grayscale';
+        }
+
+        const data = await axios.get(url);
+
+        commit('SET_ID', data.headers['picsum-id']);
+        commit('SET_IMAGE', data.request.responseURL);
+      } catch (e) {
+        // alert('Zle');
+      }
     },
   },
   modules: {},

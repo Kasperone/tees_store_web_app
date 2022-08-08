@@ -1,15 +1,18 @@
 <!-- eslint-disable -->
 <template>
   <div>
-    <input type="radio"
-           :id="radioBtnValue"
-           name="buttonRadio"
-           :value="radioBtnValue"
-           @change="getValueBtn" />
+    <input
+      type="radio"
+      :id="radioBtnValue"
+      name="buttonRadio"
+      :value="radioBtnValue"
+      @change="getValueBtn" />
 
     <span>
-      <label :for="radioBtnValue"
-             class="inline-block ml-3">
+      <label
+        :for="radioBtnValue"
+        :for="radioBtnGray"
+        class="inline-block ml-3">
         {{ radioBtnValue }}
       </label>
     </span>
@@ -23,15 +26,23 @@ export default {
       type: String,
       default: 'Yes',
     },
+    radioBtnGray: {
+      type: String,
+      default: 'No',
+    },
   },
 
   setup(props, { emit }) {
     function getValueBtn(payload) {
       emit('radio-btn-value', payload.target.value);
     }
+    function getValueGray(payload) {
+      emit('radio-btn-gray', payload.target.value);
+    }
 
     return {
       getValueBtn,
+      getValueGray,
     };
   },
 };

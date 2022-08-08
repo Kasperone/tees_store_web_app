@@ -17,6 +17,9 @@ const i18n = createI18n({
   },
 });
 
-createApp(App).use(store).use(router).use(i18n)
+createApp(App)
+  .use(store)
+  .use(router)
+  .use(i18n)
   .use(VueAxios, axios)
   .mount('#app');

@@ -1,18 +1,20 @@
 <!-- eslint-disable -->
 <template>
   <div>
-    <label for="range"
-           class="font-bold text-gray-600">
+    <label
+      for="range"
+      class="font-bold text-gray-600">
       {{ text }}
     </label>
     <div>
-      <input @change="$emit('valueChanged', inputValue);"
-             v-model="inputValue"
-             type="range"
-             :min="minValue"
-             :max="maxValue"
-             name="range"
-             class="w-[26.5rem] h-px bg-black cursor-pointer appearance-none slider-thumb" />
+      <input
+        @change="$emit('valueChanged', inputValue)"
+        v-model="inputValue"
+        type="range"
+        :min="minValue"
+        :max="maxValue"
+        name="range"
+        class="w-full h-px bg-black cursor-pointer appearance-none slider-thumb" />
     </div>
   </div>
 </template>
@@ -33,7 +35,7 @@ export default {
     },
     maxValue: {
       type: String,
-      default: '10',
+      default: '1',
     },
     stepValue: {
       type: String,
