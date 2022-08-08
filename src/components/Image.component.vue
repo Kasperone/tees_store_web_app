@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <img
-      alt="print image"
-      :src="image" />
-  </div>
+  <img
+    alt="print image"
+    :src="image" />
 </template>
 
 <script>

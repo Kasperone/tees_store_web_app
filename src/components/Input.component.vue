@@ -16,11 +16,11 @@ export default defineComponent({
   props: {
     label: {
       type: String,
-      default: null,
+      default: '',
     },
     id: {
       type: String,
-      default: null,
+      default: '',
     },
     placeholder: {
       type: String,
@@ -28,7 +28,7 @@ export default defineComponent({
     },
     value: {
       type: String,
-      default: null,
+      default: '',
     },
   },
   setup(props, { emit }) {
