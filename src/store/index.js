@@ -1,7 +1,9 @@
 import { createStore } from 'vuex';
+import axios from 'axios';
 
 export default createStore({
   state: {
+    Id: 0,
     routerNames: [
       {
         PageName: 'placeOfPrintingView',
@@ -24,6 +26,7 @@ export default createStore({
         name: 'Summary',
       },
     ],
+    image: '',
     tshirtPriceCover: [
       {
         name: 'front',
@@ -47,6 +50,26 @@ export default createStore({
       },
     ],
     currentPageName: 'placeOfPrintingView',
+    photosIdContainer: [],
+
+    selectItems: [
+      {
+        value: 1,
+        label: 'DPD Courier',
+      },
+      {
+        value: 2,
+        label: 'UPS Courier',
+      },
+      {
+        value: 3,
+        label: 'DHL Courier',
+      },
+    ],
+    inputFullName: '',
+    inputAddress: '',
+    inputZipCode: '',
+    inputEmail: '',
     radioBtn: null,
     tshirtPrices: 60,
     inputPromoCode: '',
@@ -86,11 +109,23 @@ export default createStore({
     getInputPromoPrice: (state) => state.inputPromoCode.length,
 
     getIsPromoCodeActive: (state) => state.inputPromoCode.length > 0 && state.isPromoBtnActive,
+    getImage: (state) => state.image,
   },
   mutations: {
     ROUTER_NAMES(state, payload) {
       state.currentPageName = payload;
     },
+    SET_IMAGE(state, image) {
+      state.image = image;
+    },
+    SET_ID(state, payload) {
+      state.photosIdContainer.push(payload);
+    },
+    INPUT_FULL_NAME(state, payload) {
+      state.inputFullName = payload;
+    },
+    INPUT_ADDRESS(state, payload) {
+      state.inputAddress = payload;
     ADD_RADIO_BTN(state, payload) {
       state.radioBtn = payload;
     },
@@ -101,6 +136,24 @@ export default createStore({
       state.isPromoBtnActive = payload;
     },
   },
-  actions: {},
+  actions: {
+    routerName({ commit }, payload) {
+      commit('ROUTER_NAMES', payload);
+    },
+    async loadImage({ commit }, payload) {
+      let url = `https://picsum.photos/id/${payload.id}/600/250`;
+      if (payload.blur) {
+        url += `?blur=${payload.blur}`;
+      }
+      if (payload.grayscale) {
+        url += payload.blur ? '&grayscale' : '?grayscale';
+      }
+
+      const data = await axios.get(url);
+
+      commit('SET_ID', data.headers['picsum-id']);
+      commit('SET_IMAGE', data.request.responseURL);
+    },
+  },
   modules: {},
 });

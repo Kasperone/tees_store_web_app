@@ -9,9 +9,9 @@
     </nav>
 
     <img
-      src='@/assets/images/line.svg'
-      alt='horisontal line'
-    />
+      class="max-w-fit"
+      src="@/assets/images/line.svg"
+      alt="horizontal line" />
   </section>
 </template>
 
