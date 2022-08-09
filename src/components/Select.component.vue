@@ -1,10 +1,10 @@
 <template>
-  <div class="w-72">
+  <div class="w-52">
     <button
       class="select-btn"
-      @click="open"
+      @click.prevent="open"
       @keypress.enter="isOpen">
-      <span class="select-label">{{ text }}</span>
+      <span class="select-label">{{ $t(text) }}</span>
 
       <c-icon
         :class="[
@@ -18,11 +18,11 @@
       v-if="isOpen"
       class="select-list">
       <li
-        @change="sendItemChange"
-        class="select-list_element"
         v-for="item in selectItems"
-        :key="item.value">
-        {{ item.label }}
+        :key="item.value"
+        class="select-list_element"
+        @change="sendItemChange">
+        {{ $t(item.label) }}
       </li>
     </ul>
   </div>
@@ -41,7 +41,7 @@ export default defineComponent({
       default: 'Shipping',
     },
     selectItems: {
-      type: Array,
+      type: Object,
       required: true,
     },
   },
@@ -77,11 +77,11 @@ export default defineComponent({
   }
 
   .select-list {
-    @apply text-gray-800 mt-1 bg-gray-300 rounded-xl;
+    @apply absolute w-52 text-gray-800 mt-1 bg-gray-100 rounded-xl;
   }
 
   .select-list_element {
-    @apply flex h-14 pl-4 items-center rounded-xl cursor-pointer hover:bg-gray-200;
+    @apply flex w-full h-14 pl-4 items-center rounded-xl cursor-pointer hover:bg-gray-200;
   }
 }
 </style>
