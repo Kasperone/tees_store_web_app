@@ -1,5 +1,5 @@
 <template>
-  <h2 :class="titleClass">{{ text }}</h2>
+  <h2 :class='titleClass'>{{ text }}</h2>
 </template>
 
 <script>

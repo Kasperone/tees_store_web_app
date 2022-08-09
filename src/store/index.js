@@ -24,31 +24,34 @@ export default createStore({
         name: 'Summary',
       },
     ],
+    tshirtPriceCover: [
+      {
+        name: 'front',
+        id: 1,
+        price: 10,
+      },
+      {
+        name: 'back',
+        id: 2,
+        price: 20,
+      },
+      {
+        name: 'both',
+        id: 3,
+        price: 30,
+      },
+    ],
     imageSrc: [
       {
         src: require('@/assets/images/check-icon.png'),
       },
     ],
     currentPageName: 'placeOfPrintingView',
-
-    selectItems: [
-      {
-        value: 1,
-        label: 'DPD Courier',
-      },
-      {
-        value: 2,
-        label: 'UPS Courier',
-      },
-      {
-        value: 3,
-        label: 'DHL Courier',
-      },
-    ],
-    inputFullName: '',
-    inputAddress: '',
-    inputZipCode: '',
-    inputEmail: '',
+    radioBtn: null,
+    tshirtPrices: 60,
+    inputPromoCode: '',
+    isPromoBtnActive: false,
+    promoDiscount: 20,
   },
   getters: {
     getPathNumber: (state) => {
@@ -57,29 +60,47 @@ export default createStore({
       );
       return findElem.map((elem) => elem.id);
     },
+
     getImagePath: (state) => state.imageSrc.map((item) => item.src),
+
+    getTshirtCoverPrice: (state) => {
+      const getTshirtPrice = state.tshirtPriceCover.filter(
+        (elem) => elem.id === state.radioBtn,
+      );
+      return getTshirtPrice.map((elem) => elem.price);
+    },
+
+    getTshirtPrice: (state, getters) => {
+      if (state.isPromoBtnActive) {
+        const persentage = (state.promoDiscount / 100)
+          * (state.tshirtPrices + getters.getTshirtCoverPrice[0]);
+        return state.tshirtPrices - persentage + getters.getTshirtCoverPrice[0];
+      }
+
+      if (getters.getTshirtCoverPrice.length === 0) {
+        return 0;
+      }
+      return state.tshirtPrices + getters.getTshirtCoverPrice[0];
+    },
+
+    getInputPromoPrice: (state) => state.inputPromoCode.length,
+
+    getIsPromoCodeActive: (state) => state.inputPromoCode.length > 0 && state.isPromoBtnActive,
   },
   mutations: {
     ROUTER_NAMES(state, payload) {
       state.currentPageName = payload;
     },
-    INPUT_FULL_NAME(state, payload) {
-      state.inputFullName = payload;
+    ADD_RADIO_BTN(state, payload) {
+      state.radioBtn = payload;
     },
-    INPUT_ADDRESS(state, payload) {
-      state.inputAddress = payload;
+    ADD_INPUT_PROMO_PRICE(state, payload) {
+      state.inputPromoCode = payload;
     },
-    INPUT_ZIP_CODE(state, payload) {
-      state.inputZipCode = payload;
-    },
-    INPUT_EMAIL(state, payload) {
-      state.inputEmail = payload;
+    ADD_APPLY_PROMO_CODE(state, payload) {
+      state.isPromoBtnActive = payload;
     },
   },
-  actions: {
-    routerName({ commit }, payload) {
-      commit('ROUTER_NAMES', payload);
-    },
-  },
+  actions: {},
   modules: {},
 });

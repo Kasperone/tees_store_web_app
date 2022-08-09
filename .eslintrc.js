@@ -8,6 +8,9 @@ module.exports = {
     ecmaVersion: 2020,
   },
   rules: {
+    'vue/no-multiple-template-root': 'off',
+    'vuejs-accessibility/label-has-for': 'off',
+    'newline-per-chained-call': 'off',
     'global-require': 0,
     'no-multiple-empty-lines': ['error', { max: 2 }],
     'no-param-reassign': [2, { props: false }],

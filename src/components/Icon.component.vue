@@ -1,8 +1,9 @@
 <template>
   <img
-    class="mr-6"
-    :src="iconImage.arrow"
-    alt="arrow icon" />
+    class='mr-6'
+    :src='iconImage.arrow'
+    alt='arrow icon'
+  />
 </template>
 
 <script>

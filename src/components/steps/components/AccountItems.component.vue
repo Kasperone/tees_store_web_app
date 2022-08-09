@@ -1,4 +1,3 @@
-<!-- eslint-disable -->
 <template>
   <div
     v-for="(item, index) in itemArray"
@@ -17,7 +16,7 @@
           <img
             src="@/assets/images/Line.png"
             alt="line-photo"
-            class="w-6" />
+            w-6 />
         </span>
 
         <span class="w-5 h-5 m-auto">

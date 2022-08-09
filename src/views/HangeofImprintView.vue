@@ -20,17 +20,10 @@ export default {
     const currentPathObject = router.currentRoute.value;
     const currentPage = computed(() => store.getters.getPathNumber);
     const bulletNum = computed(() => store.state.routerNames);
-    store.dispatch('routerName', currentPathObject.name);
+    store.commit('ROUTER_NAMES', currentPathObject.name);
 
     provide('number', currentPage.value[0]);
     provide('bulletNum', bulletNum);
-
-    return {
-      router,
-      currentPathObject,
-      currentPage,
-      bulletNum,
-    };
   },
 };
 </script>

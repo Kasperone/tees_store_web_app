@@ -1,5 +1,13 @@
 <template>
-  <button :class="buttonClass">{{ text }}</button>
+  <button
+    :class='{
+      secondary: colorPrimary,
+      primary: routeBtn,
+      apply__btn: applBtn,
+    }'
+  >
+    {{ text }}
+  </button>
 </template>
 
 <script>
@@ -15,9 +23,18 @@ export default defineComponent({
     type: {
       type: String,
       default: 'primary',
-      validator(value) {
-        return ['primary', 'secondary'].includes(value);
-      },
+    },
+    colorPrimary: {
+      type: Boolean,
+      default: false,
+    },
+    routeBtn: {
+      type: Boolean,
+      default: false,
+    },
+    applBtn: {
+      type: Boolean,
+      default: false,
     },
   },
   setup(props) {
@@ -39,15 +56,19 @@ export default defineComponent({
 
 @layer components {
   button {
-    @apply h-14 rounded-lg;
+    @apply h-14 w-[12.5rem] rounded-lg text-black;
   }
 
   .primary {
-    @apply w-32  bg-white text-blue-600  border border-solid border-blue-500;
+    @apply text-black bg-brand-blue-1;
   }
 
   .secondary {
-    @apply w-52 bg-blue-600 text-white;
+    @apply bg-blue-600 text-white;
+  }
+
+  .apply__btn {
+    @apply text-blue-600 border-2 border-blue-600 h-[3.60rem];
   }
 }
 </style>
