@@ -95,8 +95,9 @@ export default createStore({
 
     getTshirtPrice: (state, getters) => {
       if (state.isPromoBtnActive) {
-        const persentage = (state.promoDiscount / 100)
-          * (state.tshirtPrices + getters.getTshirtCoverPrice[0]);
+        const persentage =
+          (state.promoDiscount / 100) *
+          (state.tshirtPrices + getters.getTshirtCoverPrice[0]);
         return state.tshirtPrices - persentage + getters.getTshirtCoverPrice[0];
       }
 
@@ -108,7 +109,8 @@ export default createStore({
 
     getInputPromoPrice: (state) => state.inputPromoCode.length,
 
-    getIsPromoCodeActive: (state) => state.inputPromoCode.length > 0 && state.isPromoBtnActive,
+    getIsPromoCodeActive: (state) =>
+      state.inputPromoCode.length > 0 && state.isPromoBtnActive,
     getImage: (state) => state.image,
   },
   mutations: {
@@ -126,6 +128,7 @@ export default createStore({
     },
     INPUT_ADDRESS(state, payload) {
       state.inputAddress = payload;
+    },
     ADD_RADIO_BTN(state, payload) {
       state.radioBtn = payload;
     },
