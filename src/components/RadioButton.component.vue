@@ -11,7 +11,6 @@
     <span>
       <label
         :for="radioBtnValue"
-        :for="radioBtnGray"
         class="inline-block ml-3">
         {{ radioBtnValue }}
       </label>
