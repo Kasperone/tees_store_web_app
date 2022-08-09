@@ -1,17 +1,18 @@
 <template>
-  <div class="w-5 h-5 border-2 rounded-full bg-black">
-    <span class="text-white flex justify-center mt-[-0.063rem] text-xs">
-      <p :class="{ hidden: taskChecked }">
+  <div class='w-5 h-5 border-2 rounded-full bg-black'>
+    <span class='text-white flex justify-center mt-[-0.063rem] text-xs'>
+      <p :class='{ hidden: taskChecked }'>
         {{ itemNumber }}
       </p>
     </span>
 
     <span>
       <img
-        class="ml-px w-[0.725rem] h-[0.725] mt-[0.188rem]"
-        src="@/assets/images/check-icon.png"
-        alt="icon-check"
-        :class="{ hidden: !taskChecked }" />
+        class='ml-px w-[0.725rem] h-[0.725] mt-[0.188rem]'
+        src='@/assets/images/check-icon.png'
+        alt='icon-check'
+        :class='{ hidden: !taskChecked }'
+      />
     </span>
   </div>
 </template>

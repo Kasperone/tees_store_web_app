@@ -1,27 +1,31 @@
 <template>
-  <div class="w-72">
+  <div class='w-72'>
     <button
-      class="select-btn"
-      @click="open"
-      @keypress.enter="isOpen">
-      <span class="select-label">{{ text }}</span>
+      class='select-btn'
+      @click='open'
+      @keypress.enter='isOpen'
+    >
+      <span class='select-label'>{{ text }}</span>
 
       <c-icon
         :class="[
           isOpen
             ? 'rotate-180 transition-transform duration-500'
             : 'rotate-0 transition-transform duration-500',
-        ]" />
+        ]"
+      />
     </button>
 
     <ul
-      v-if="isOpen"
-      class="select-list">
+      v-if='isOpen'
+      class='select-list'
+    >
       <li
-        @change="sendItemChange"
-        class="select-list_element"
-        v-for="item in selectItems"
-        :key="item.value">
+        @change='sendItemChange'
+        class='select-list_element'
+        v-for='item in selectItems'
+        :key='item.value'
+      >
         {{ item.label }}
       </li>
     </ul>

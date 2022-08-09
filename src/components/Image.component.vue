@@ -1,7 +1,8 @@
 <template>
   <img
-    :alt="altName"
-    :src="imgSrc" />
+    :alt='altName'
+    :src='imgSrc'
+  />
 </template>
 
 <script>

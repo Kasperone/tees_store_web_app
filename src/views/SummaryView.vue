@@ -82,7 +82,7 @@
 import cAccount from '@/components/steps/Account.component.vue';
 import cTitle from '@/components/Title.component.vue';
 import cActionBtn from '@/components/ActionButton.component.vue';
-import cDisplayText from '@/components/DisplayTextData.component';
+import cDisplayText from '@/components/DisplayTextData.component.vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { computed, provide } from 'vue';

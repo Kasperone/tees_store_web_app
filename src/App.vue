@@ -1,8 +1,10 @@
 <template>
-  <div class="w-[90rem] m-auto">
-    <cNavBar />
+  <div>
+    <div class="w-[90rem] m-auto">
+      <cNavBar />
+    </div>
+    <router-view />
   </div>
-  <router-view />
 </template>
 <script>
 import cNavBar from '@/components/NavBar.component.vue';

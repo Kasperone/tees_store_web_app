@@ -1,15 +1,17 @@
 <template>
   <div>
     <input
-      type="radio"
-      :id="radioBtnValue"
-      name="buttonRadio"
-      :value="radioBtnValue"
-      @change="getValueBtn" />
+      type='radio'
+      :id='radioBtnValue'
+      name='buttonRadio'
+      :value='radioBtnValue'
+      @change='getValueBtn'
+    />
 
     <label
-      :for="radioBtnValue"
-      class="inline-block ml-3">
+      :for='radioBtnValue'
+      class='inline-block ml-3'
+    >
       {{ labelName }}
     </label>
   </div>

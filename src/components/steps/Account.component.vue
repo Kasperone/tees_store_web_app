@@ -1,6 +1,6 @@
 <template>
-  <div class="container md h-[2.375rem] flex justify-center items-center p-2">
-    <c-account-items :itemArray="getPageName" />
+  <div class='container md h-[2.375rem] flex justify-center items-center p-2'>
+    <c-account-items :itemArray='getPageName' />
   </div>
 </template>
 

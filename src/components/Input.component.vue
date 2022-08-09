@@ -1,11 +1,12 @@
 <template>
-  <label :for="label">
+  <label :for='label'>
     <input
-      :id="id"
-      :value="value"
-      :placeholder="placeholder"
-      @input="handleInput"
-      :class="[secondaryStyle ? '' : 'input__code']" />
+      :id='id'
+      :value='value'
+      :placeholder='placeholder'
+      @input='handleInput'
+      :class="[secondaryStyle ? '' : 'input__code']"
+    />
   </label>
 </template>
 
@@ -55,6 +56,7 @@ export default defineComponent({
   input {
     @apply w-full h-14 bg-gray-300 rounded-xl;
   }
+
   .input__code {
     @apply w-[16.875rem] h-[3.688rem];
   }

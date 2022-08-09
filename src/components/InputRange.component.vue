@@ -1,18 +1,20 @@
 <template>
   <div>
     <label
-      for="range"
-      class="font-bold text-gray-600">
+      for='range'
+      class='font-bold text-gray-600'
+    >
       {{ text }}
     </label>
     <div>
       <input
-        type="range"
-        :min="minValue"
-        :max="maxValue"
-        :value="stepValue"
-        :name="range"
-        class="w-[26.5rem] h-px bg-black cursor-pointer appearance-none slider-thumb" />
+        type='range'
+        :min='minValue'
+        :max='maxValue'
+        :value='stepValue'
+        :name='range'
+        class='w-[26.5rem] h-px bg-black cursor-pointer appearance-none slider-thumb'
+      />
     </div>
   </div>
 </template>

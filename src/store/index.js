@@ -72,9 +72,8 @@ export default createStore({
 
     getTshirtPrice: (state, getters) => {
       if (state.isPromoBtnActive) {
-        const persentage =
-          (state.promoDiscount / 100) *
-          (state.tshirtPrices + getters.getTshirtCoverPrice[0]);
+        const persentage = (state.promoDiscount / 100)
+          * (state.tshirtPrices + getters.getTshirtCoverPrice[0]);
         return state.tshirtPrices - persentage + getters.getTshirtCoverPrice[0];
       }
 
@@ -86,8 +85,7 @@ export default createStore({
 
     getInputPromoPrice: (state) => state.inputPromoCode.length,
 
-    getIsPromoCodeActive: (state) =>
-      state.inputPromoCode.length > 0 && state.isPromoBtnActive,
+    getIsPromoCodeActive: (state) => state.inputPromoCode.length > 0 && state.isPromoBtnActive,
   },
   mutations: {
     ROUTER_NAMES(state, payload) {
