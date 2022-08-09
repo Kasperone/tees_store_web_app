@@ -16,7 +16,7 @@ export default defineComponent({
       type: String,
       default: 'primary',
       validator(value) {
-        return ['primary', 'secondary'].includes(value);
+        return ['primary', 'secondary', 'no-style'].includes(value);
       },
     },
   },
@@ -48,6 +48,9 @@ export default defineComponent({
 
   .secondary {
     @apply w-52 bg-blue-600 text-white;
+  }
+  .no-style {
+    @apply bg-none text-gray-700;
   }
 }
 </style>

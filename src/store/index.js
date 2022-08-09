@@ -62,22 +62,18 @@ export default createStore({
       commit('ROUTER_NAMES', payload);
     },
     async loadImage({ commit }, payload) {
-      try {
-        let url = `https://picsum.photos/id/${payload.id}/600/250`;
-        if (payload.blur) {
-          url += `?blur=${payload.blur}`;
-        }
-        if (payload.grayscale) {
-          url += payload.blur ? '&grayscale' : '?grayscale';
-        }
-
-        const data = await axios.get(url);
-
-        commit('SET_ID', data.headers['picsum-id']);
-        commit('SET_IMAGE', data.request.responseURL);
-      } catch (e) {
-        // alert('Zle');
+      let url = `https://picsum.photos/id/${payload.id}/600/250`;
+      if (payload.blur) {
+        url += `?blur=${payload.blur}`;
       }
+      if (payload.grayscale) {
+        url += payload.blur ? '&grayscale' : '?grayscale';
+      }
+
+      const data = await axios.get(url);
+
+      commit('SET_ID', data.headers['picsum-id']);
+      commit('SET_IMAGE', data.request.responseURL);
     },
   },
   modules: {},
