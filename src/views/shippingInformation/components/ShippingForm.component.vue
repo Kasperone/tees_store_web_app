@@ -1,5 +1,5 @@
 <template>
-  <form class="relative w-96">
+  <form class="relative w-[33.375rem]">
     <div class="mb-3.5">
       <span class="text-brand-gray-1 font-base font-medium leading-4">{{
         $t('Name and Surname')
