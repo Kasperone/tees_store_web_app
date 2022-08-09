@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import PlaceOfPrintingView from '../views/PlaceOfPrintingView.vue';
 import HangeofImprintView from '../views/HangeofImprintView.vue';
-import ShippingInformation from '../views/ShippingInformation.vue';
+import ShippingInformation from '../views/shippingInformation/ShippingInformation.vue';
 import SummaryView from '../views/SummaryView.vue';
 
 const routes = [

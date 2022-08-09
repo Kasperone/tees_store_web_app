@@ -37,7 +37,7 @@ export default {
     },
     isActive: {
       type: Boolean,
-      dafeault: false,
+      default: false,
     },
   },
 };

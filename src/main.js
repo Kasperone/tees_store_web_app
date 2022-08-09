@@ -1,5 +1,4 @@
 import { createApp } from 'vue';
-// import { i18n } from './i18n/i18n';
 import { createI18n } from 'vue-i18n';
 import axios from 'axios';
 import VueAxios from 'vue-axios';

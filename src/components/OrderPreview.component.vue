@@ -1,6 +1,5 @@
 <template>
-  <section
-    class="px-11 w-[32rem] h-[48.25rem] bg-brand-blue-1 rounded-[0.625rem]">
+  <section class="px-11 w-full h-full bg-brand-blue-1 rounded-xl">
     <c-title
       class="pt-6 pb-5"
       text="Order preview" />
@@ -8,16 +7,16 @@
     <c-image class="mb-2.5" />
 
     <c-title
-      type="secondary"
-      text="Promo code:" />
+      text="Promo code:"
+      type="secondary" />
 
     <div class="flex w-full space-x-10">
-      <c-input id="promo" />
+      <c-input />
 
       <c-action-button text="Apply" />
     </div>
 
-    <div class="flex flex-row justify-between pt-[3.125rem]">
+    <div class="flex flex-row justify-between pt-12">
       <span class="font-medium text-sm text-gray-700">print placement</span>
       <div class="font-medium text-xl text-gray-800">0.00 {{ currency }}</div>
     </div>

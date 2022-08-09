@@ -17,7 +17,8 @@
           <img
             class="w-6"
             src="@/assets/images/Line.png"
-            alt="line-photo" />
+            alt="line-photo"
+             />
         </span>
 
         <span class="w-5 h-5 m-auto">
@@ -52,12 +53,14 @@ export default {
     },
   },
 
-  setup() {
+  setup(props) {
     const store = useStore();
     const currentPage = computed(() => store.state.currentPageName);
+    const itemLength = computed(() => props.itemArray.length);
 
     return {
       currentPage,
+      itemLength,
     };
   },
 };
