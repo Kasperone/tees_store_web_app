@@ -7,7 +7,7 @@ import SummaryView from '../views/SummaryView.vue';
 
 const routes = [
   {
-    path: '/placeOfPrintingView',
+    path: '/',
     name: 'placeOfPrintingView',
     component: PlaceOfPrintingView,
   },

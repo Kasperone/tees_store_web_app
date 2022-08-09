@@ -13,7 +13,7 @@
         :min="minValue"
         :max="maxValue"
         name="range"
-        class="w-full h-px bg-black cursor-pointer appearance-none slider-thumb" />
+        class="w-[26.5rem] h-px bg-black cursor-pointer appearance-none slider-thumb" />
     </div>
   </div>
 </template>
