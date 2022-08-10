@@ -123,11 +123,14 @@ export default createStore({
     SET_ID(state, payload) {
       state.photosIdContainer.push(payload);
     },
-    INPUT_FULL_NAME(state, payload) {
+    SET_INPUT_FULL_NAME(state, payload) {
       state.inputFullName = payload;
     },
-    INPUT_ADDRESS(state, payload) {
+    SET_INPUT_ADDRESS(state, payload) {
       state.inputAddress = payload;
+    },
+    SET_INPUT_ZIP_CODE(state, payload) {
+      state.inputZipCode = payload;
     },
     ADD_RADIO_BTN(state, payload) {
       state.radioBtn = payload;

@@ -4,7 +4,7 @@
       class="select-btn"
       @click.prevent="open"
       @keypress.enter="isOpen">
-      <span class="select-label">{{ text }}</span>
+      <span class="select-label">{{ $t(text) }}</span>
 
       <c-icon
         :class="[
@@ -22,7 +22,7 @@
         class="select-list_element"
         v-for="item in selectItems"
         :key="item.value">
-        {{ item.label }}
+        {{ $t(item.label) }}
       </li>
     </ul>
   </div>

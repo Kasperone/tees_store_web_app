@@ -98,19 +98,19 @@ export default defineComponent({
     const store = useStore();
 
     const inputFullName = (payload) => {
-      store.commit('INPUT_FULL_NAME', payload.target.value);
+      store.commit('SET_INPUT_FULL_NAME', payload.target.value);
     };
 
     const inputAddress = (payload) => {
-      store.commit('INPUT_ADDRESS', payload.target.value);
+      store.commit('SET_INPUT_ADDRESS', payload.target.value);
     };
 
     const inputZipCode = (payload) => {
-      store.commit('INPUT_ZIP_CODE', payload.target.value);
+      store.commit('SET_INPUT_ZIP_CODE', payload.target.value);
     };
 
     const inputEmail = (payload) => {
-      store.commit('INPUT_EMAIL', payload.target.value);
+      store.commit('SET_INPUT_EMAIL', payload.target.value);
     };
 
     const currentPage = computed(() => store.getters.getPathNumber);

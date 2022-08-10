@@ -1,89 +1,74 @@
 <template>
-  <main class="flex gap-5 justify-center">
-    <div
-      class="w-[47rem] h-[48.25rem] bg-brand-blue-1 rounded-[0.625rem] relative">
-      <nav class="mt-[2.125rem] absolute pr-4">
-        <c-Account />
-      </nav>
-      <header>
-        <c-Title
-          class="mt-[7rem] ml-[1.563rem] absolute"
+  <section
+    class="container my-auto p-11 flex-row justify-between h-[48.25rem] bg-brand-blue-1 rounded-[0.625rem]">
+    <div class="grid grid-cols-3 gap-2 object-fit">
+      <div class="col-span-2">
+        <c-title
+          class="py-6"
           :text="$t('photo settings')" />
-      </header>
 
-      <section class="mt-[9.375rem] absolute">
         <div class="flex">
-          <div class="ml-[1.563rem] w-[26.313rem]">
-            <div />
-            <c-image
-              class="max-w-full"
-              :my-params="myParams"
-              :randomId="currentId" />
-            <div class="w-56 h-[15.625rem] w-[9.125rem]" />
-          </div>
+          <c-image
+            class="max-w-full"
+            :my-params="myParams"
+            :randomId="randomId" />
 
           <div>
             <div>
               <c-action-button
+                class="text-start ml-9 mb-3"
                 :text="$t('next photo')"
-                type="no-style"
-                class="flex justify-end h-[1.063rem]"
                 @click="nextImg" />
             </div>
 
             <div>
               <c-action-button
+                class="text-start ml-9"
                 :text="$t('previous photo')"
-                type="no-style"
-                class="flex justify-end ml-2"
                 @click="prevImg" />
             </div>
           </div>
         </div>
-      </section>
-      <section class="mt-[20rem]">
-        <div
-          class="grid grid-cols-3 gap-2 object-fit ml-[1.563rem] max-w-[26.313rem]">
-          <div class="col-span-2">
-            <c-input-range
-              class="pt-8"
-              :value="myParams.blur"
-              @valueChanged="setNewBlurValue"
-              minValue="0"
-              maxValue="10"
-              :text="$t('blur')" />
-            <div class="relative mt-0">
-              <span class="absolute left-0">0</span>
-              <span class="absolute ml-[25.4rem]">10</span>
-            </div>
-            <c-input-range
-              class="pt-8"
-              minValue="0"
-              maxValue="1"
-              :text="$t('grayscale')"
-              @valueChanged="setNewGrayValue"
-              :value="myParams.grayscale" />
-            <div class="relative mt-0">
-              <span class="absolute left-0">0</span>
-              <span class="absolute ml-[26rem]">1</span>
-            </div>
-          </div>
-          <div class="grid gap-0 place-content-start pt-20 pl-5"></div>
+
+        <c-input-range
+          class="py-6"
+          :value="myParams.blur"
+          @valueChanged="setNewBlurValue"
+          minValue="0"
+          maxValue="10"
+          :text="$t('blur')" />
+
+        <div class="relative mt-0">
+          <span class="absolute left-0">{{ myParams.blur }}</span>
+          <span class="absolute ml-[25.4rem]">10</span>
         </div>
-        <div
-          class="border-b-2 border-gray-400 w-[43.375rem] ml-[1.563rem] mt-[4rem]"></div>
-        <div class="flex gap-2 place-content-center my-20">
-          <c-action-button
-            @click="$router.push('/')"
-            :text="$t('backwards')" />
-          <c-action-button
-            class="secondary"
-            :text="$t('next')"
-            @click="$router.push('shippingInformation')" />
+
+        <c-input-range
+          class="py-6"
+          minValue="0"
+          maxValue="1"
+          @valueChanged="setNewGrayValue"
+          :value="myParams.grayscale"
+          :text="$t('grayscale')" />
+
+        <div class="relative mt-0">
+          <span class="absolute left-0">{{ myParams.grayscale }}</span>
+          <span class="absolute ml-[26rem]">1</span>
         </div>
-      </section>
+      </div>
     </div>
-  </main>
+    <div class="flex gap-2 place-content-center my-20">
+      <c-action-button
+        class="hover:bg-gray-500 hover:text-white"
+        @click="$router.push('/')"
+        :text="$t('backwards')" />
+
+      <c-action-button
+        class="secondary hover:bg-blue-500"
+        :text="$t('next')"
+        @click="$router.push('shippingInformation')" />
+    </div>
+  </section>
 </template>
 
 <script>
@@ -91,20 +76,12 @@ import cTitle from '@/components/Title.component.vue';
 import cImage from '@/components/Image.component.vue';
 import cInputRange from '@/components/InputRange.component.vue';
 import cActionButton from '@/components/ActionButton.component.vue';
-import cAccount from '@/components/steps/Account.component.vue';
-
 import { useStore } from 'vuex';
 import { reactive } from 'vue';
 
 export default {
   name: 'cImageSettings',
-  components: {
-    cImage,
-    cTitle,
-    cInputRange,
-    cActionButton,
-    cAccount,
-  },
+  components: { cImage, cTitle, cInputRange, cActionButton },
 
   setup() {
     const store = useStore();
@@ -121,6 +98,48 @@ export default {
     const randomId = getRandomNumber(1000, 1015);
 
     let currentId = randomId;
+
+    const setNewGrayValue = (value) => {
+      myParams.grayscale = value;
+      if (value > 0) {
+        store.dispatch('loadImage', {
+          id: randomId,
+          blur: myParams.blur,
+          grayscale: myParams.grayscale,
+        });
+      } else {
+        store.dispatch('loadImage', {
+          id: randomId,
+          blur: myParams.blur,
+          grayscale: 0,
+        });
+      }
+    };
+
+    const setNewBlurValue = (value) => {
+      myParams.blur = value;
+      if (value > 0) {
+        store.dispatch('loadImage', {
+          id: randomId,
+          blur: myParams.blur,
+          grayscale: myParams.grayscale,
+        });
+      }
+      if (myParams.blur === '0') {
+        store.dispatch('loadImage', {
+          id: randomId,
+          grayscale: myParams.grayscale,
+          blur: (myParams.blur = 0),
+        });
+      }
+      if (myParams.grayscale === '0') {
+        store.dispatch('loadImage', {
+          id: randomId,
+          blur: myParams.blur,
+          grayscale: (myParams.grayscale = 0),
+        });
+      }
+    };
 
     const nextImg = () => {
       currentId += 1;
@@ -140,30 +159,11 @@ export default {
       });
     };
 
-    const setNewGrayValue = (value) => {
-      myParams.grayscale = Number(value);
-
-      store.dispatch('loadImage', {
-        id: currentId,
-        blur: myParams.blur,
-        grayscale: myParams.grayscale,
-      });
-    };
-
-    const setNewBlurValue = (value) => {
-      myParams.blur = Number(value);
-
-      store.dispatch('loadImage', {
-        id: currentId,
-        blur: myParams.blur,
-        grayscale: myParams.grayscale,
-      });
-    };
-
     return {
       setNewBlurValue,
       setNewGrayValue,
       myParams,
+      randomId,
       currentId,
       nextImg,
       prevImg,
