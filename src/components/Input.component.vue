@@ -31,7 +31,7 @@ export default defineComponent({
       default: '',
     },
   },
-  setup(props, { emit }) {
+  setup(_, { emit }) {
     const handleInput = (event) => {
       emit('inputValue', event.target.value);
     };
