@@ -69,7 +69,7 @@ export default defineComponent({
 
 @layer components {
   .select-btn {
-    @apply w-full flex justify-between content-center items-center h-14 bg-gray-300 rounded-xl hover:bg-gray-200;
+    @apply w-full flex justify-between content-center items-center h-14 bg-gray-300 rounded-xl hover:bg-gray-400;
   }
 
   .select-label {
@@ -81,7 +81,7 @@ export default defineComponent({
   }
 
   .select-list_element {
-    @apply flex h-14 pl-4 items-center rounded-xl cursor-pointer hover:bg-gray-200;
+    @apply flex h-14 pl-4 items-center rounded-xl cursor-pointer hover:bg-gray-400;
   }
 }
 </style>

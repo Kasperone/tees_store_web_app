@@ -20,7 +20,8 @@
       <c-input
         @handle-input="inputPromoPrice"
         class="relative"
-        :secandaryStyle="true" />
+        :secandaryStyle="true"
+        :placeholder="$t('promo code')" />
 
       <c-action-button
         :text="$t('apply')"
