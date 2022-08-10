@@ -75,7 +75,6 @@ import cTitle from '@/components/Title.component.vue';
 import cRadioBtn from '@/components/RadioButton.component.vue';
 import cActionBtn from '@/components/ActionButton.component.vue';
 import cOrderPrv from '@/components/OrderPreview.component.vue';
-import cImage from '@/components/Image.component.vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { computed, provide } from 'vue';
@@ -88,7 +87,6 @@ export default {
     cRadioBtn,
     cActionBtn,
     cOrderPrv,
-    cImage,
   },
 
   setup() {
