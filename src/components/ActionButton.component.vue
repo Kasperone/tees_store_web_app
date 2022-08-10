@@ -1,11 +1,10 @@
 <template>
   <button
-    :class='{
+    :class="{
       secondary: colorPrimary,
       primary: routeBtn,
       apply__btn: applBtn,
-    }'
-  >
+    }">
     {{ text }}
   </button>
 </template>
@@ -68,7 +67,7 @@ export default defineComponent({
   }
 
   .apply__btn {
-    @apply text-blue-600 border-2 border-blue-600 h-[3.60rem];
+    @apply text-blue-600 hover:text-white border-2 border-blue-600 h-[3.60rem] cursor-pointer hover:bg-blue-500;
   }
 }
 </style>

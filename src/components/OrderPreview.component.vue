@@ -1,33 +1,55 @@
 <template>
-  <section class="px-11 w-full h-full bg-brand-blue-1 rounded-xl">
+  <section
+    class="px-11 w-[32rem] h-[48.25rem] bg-brand-blue-1 rounded-[0.625rem]">
     <c-title
       class="pt-6 pb-5"
-      text="Order preview" />
+      :text="$t('order preview')" />
 
     <c-image
-      class="w-[26.313rem]"
+      class="mb-2.5"
       :randomId="currentId" />
 
     <c-title
-      text="Promo code:"
-      type="secondary" />
+      class="secondary"
+      :text="$t('promo code')"
+      v-if="!getIsPromoCodeActive" />
 
-    <div class="flex w-full space-x-10">
-      <c-input />
+    <div
+      class="flex gap-8"
+      v-if="!getIsPromoCodeActive">
+      <c-input
+        @handle-input="inputPromoPrice"
+        class="relative"
+        :secandaryStyle="true"
+        :placeholder="$t('promo code')" />
 
       <c-action-button
         :text="$t('apply')"
-        class="apply__btn" />
+        @click="applyPromoCode"
+        :disabled="promoPriceLength <= 3 || promoPriceLength >= 11"
+        :appl-btn="true" />
     </div>
 
-    <div class="flex flex-row justify-between pt-12">
-      <span class="font-medium text-sm text-gray-700">print placement</span>
-      <div class="font-medium text-xl text-gray-800">0.00 {{ currency }}</div>
+    <div
+      v-if="promoPriceLength > 10"
+      class="text-red-500 absolute">
+      {{ $t('write words') }}
+    </div>
+
+    <div class="flex flex-row justify-between pt-[3.125rem]">
+      <span class="font-medium text-sm text-gray-700">{{
+        $t('place of printing')
+      }}</span>
+      <div class="font-medium text-xl text-gray-800">
+        <span>{{ coverPrice }}</span> {{ currency }}
+      </div>
     </div>
 
     <div class="flex flex-row justify-between mt-5">
-      <span class="text-xl">Final price</span>
-      <div class="font-medium text-xl text-gray-800">0.00 {{ currency }}</div>
+      <span class="text-xl">{{ $t('final price') }}</span>
+      <div class="font-medium text-xl text-gray-800">
+        <span>{{ priceValue }}</span> {{ currency }}
+      </div>
     </div>
   </section>
 </template>
