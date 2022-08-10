@@ -2,7 +2,7 @@
   <section class="px-11 w-[26.313rem] h-full bg-brand-blue-1 rounded-xl">
     <c-title
       class="pt-6 pb-5"
-      text="Order preview" />
+      :text="$t('order preview')" />
 
     <c-image
       class="w-[26.313rem]"
@@ -36,14 +36,14 @@
     <div class="flex flex-row justify-between pt-12">
       <span class="font-medium text-sm text-gray-700">print placement</span>
       <div class="font-medium text-xl text-gray-800">
-        {{ coverPrice }} {{ currency }}
+        {{ coverPrice }} {{ $t('zloty') }}
       </div>
     </div>
 
     <div class="flex flex-row justify-between mt-5">
       <span class="text-xl">Final price</span>
       <div class="font-medium text-xl text-gray-800">
-        {{ totalTshirtPrice }} {{ currency }}
+        {{ totalTshirtPrice }} {{ $t('zloty') }}
       </div>
     </div>
   </section>
