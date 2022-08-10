@@ -70,7 +70,7 @@ export default createStore({
     inputAddress: '',
     inputZipCode: '',
     inputEmail: '',
-    radioBtn: null,
+    radioBtn: 0,
     tshirtPrices: 60,
     inputPromoCode: '',
     isPromoBtnActive: false,

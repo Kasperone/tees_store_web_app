@@ -1,5 +1,5 @@
 <template>
-  <section class="px-11 w-full h-full bg-brand-blue-1 rounded-xl">
+  <section class="px-11 w-[26.313rem] h-full bg-brand-blue-1 rounded-xl">
     <c-title
       class="pt-6 pb-5"
       text="Order preview" />
@@ -12,22 +12,39 @@
       text="Promo code:"
       type="secondary" />
 
-    <div class="flex w-full space-x-10">
-      <c-input />
+    <div
+      class="flex w-full space-x-10"
+      v-if="!getIsPromoCodeActive">
+      <c-input @input-value="inputPromoPrice" />
 
       <c-action-button
         :text="$t('apply')"
-        class="apply__btn" />
+        class="apply__btn"
+        @click="applyPromoCode"
+        :disabled="
+          promoPriceLength <= 3 ||
+          promoPriceLength >= 11 ||
+          totalTshirtPrice === 0
+        " />
+    </div>
+    <div
+      v-if="promoPriceLength > 10"
+      class="text-red-500 absolute">
+      {{ $t('write words') }}
     </div>
 
     <div class="flex flex-row justify-between pt-12">
       <span class="font-medium text-sm text-gray-700">print placement</span>
-      <div class="font-medium text-xl text-gray-800">0.00 {{ currency }}</div>
+      <div class="font-medium text-xl text-gray-800">
+        {{ coverPrice }} {{ currency }}
+      </div>
     </div>
 
     <div class="flex flex-row justify-between mt-5">
       <span class="text-xl">Final price</span>
-      <div class="font-medium text-xl text-gray-800">0.00 {{ currency }}</div>
+      <div class="font-medium text-xl text-gray-800">
+        {{ totalTshirtPrice }} {{ currency }}
+      </div>
     </div>
   </section>
 </template>
@@ -64,6 +81,10 @@ export default {
       () => store.getters.getIsPromoCodeActive,
     );
     const isRadioBtnEmpty = computed(() => store.state.radioBtn);
+    const totalTshirtPrice = computed(() => store.getters.getTshirtPrice);
+    const tshirtCoverPrice = computed(
+      () => store.getters.getTshirtCoverPrice[0],
+    );
 
     function inputPromoPrice(payload) {
       store.commit('ADD_INPUT_PROMO_PRICE', payload);
@@ -90,6 +111,8 @@ export default {
       isRadioBtnEmpty,
       randomId,
       currentId,
+      totalTshirtPrice,
+      tshirtCoverPrice,
     };
   },
 };
