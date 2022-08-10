@@ -19,14 +19,14 @@
             <img
               alt="print image"
               :src="image"
-              class="mt-16 ml-16 w-[5.625rem] h-[4.375rem]" />
+              class="mt-16 ml-16 w-[5.625rem] h-[4.375rem] object-cover" />
           </div>
           <div
             class="bg-[url('@/assets/images/tshirt-back.png')] w-56 h-[15.625rem] ml-[6.25rem]">
             <img
               alt="print image"
               :src="image"
-              class="mt-16 ml-16 w-[5.625rem] h-[4.375rem]" />
+              class="mt-16 ml-16 w-[5.625rem] h-[4.375rem] object-cover" />
           </div>
         </div>
       </section>

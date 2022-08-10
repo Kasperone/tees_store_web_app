@@ -147,7 +147,6 @@ export default createStore({
       commit('ROUTER_NAMES', payload);
     },
     async loadImage({ commit }, payload) {
-      console.log(payload.id);
       let url = `https://picsum.photos/id/${payload.id}/600/250`;
       if (payload.blur) {
         url += `?blur=${payload.blur}`;

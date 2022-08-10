@@ -5,10 +5,10 @@
   "help": "Pomoc",
   "account": "Konto",
   "items": "Produkty",
-  "place of printing": "Miejsce nadruku",
-  "change of imprint": "Zmiana nadruku",
-  "shipping information": "Dane do wysyłki",
-  "summary": "Podsumowanie",
+  "Place Of Printing": "Miejsce nadruku",
+  "Hange Of Imprint": "Zmiana nadruku",
+  "Shipping Information": "Dane do wysyłki",
+  "Summary": "Podsumowanie",
   "t-shirt preview": "Podgląd na koszulce",
   "front": "Przód",
   "back": "Tył",
@@ -49,6 +49,7 @@
   "Enter your email address": "Podaj adres email",
   "DPD Courier": "Kurier DPD",
   "UPS Courier": "Kurier UPS",
-  "DHL Courier": "Kurier DHL"
+  "DHL Courier": "Kurier DHL",
+  "zloty": "złoty"
 }
 

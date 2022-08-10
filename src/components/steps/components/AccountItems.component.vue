@@ -7,7 +7,7 @@
       <li
         :class="[currentPage === item.PageName ? 'text-color' : '']"
         class="text-center">
-        <span> {{ item.name }} </span>
+        <span> {{ $t(item.name) }} </span>
       </li>
 
       <li
