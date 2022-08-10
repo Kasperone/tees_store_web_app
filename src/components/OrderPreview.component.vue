@@ -1,54 +1,49 @@
 <template>
-  <section
-    class="px-11 w-[32rem] h-[48.25rem] bg-brand-blue-1 rounded-[0.625rem]">
+  <section class="px-11 w-[26.313rem] h-full bg-brand-blue-1 rounded-xl">
     <c-title
       class="pt-6 pb-5"
-      :text="$t('order preview')" />
+      text="Order preview" />
 
     <c-image
-      class="mb-2.5"
+      class="w-[26.313rem]"
       :randomId="currentId" />
 
     <c-title
-      class="secondary"
-      :text="$t('promo code')"
-      v-if="!getIsPromoCodeActive" />
+      text="Promo code:"
+      type="secondary" />
 
     <div
-      class="flex gap-8"
+      class="flex w-full space-x-10"
       v-if="!getIsPromoCodeActive">
-      <c-input
-        @handle-input="inputPromoPrice"
-        class="relative"
-        :secandaryStyle="true"
-        :placeholder="$t('promo code')" />
+      <c-input @input-value="inputPromoPrice" />
 
       <c-action-button
         :text="$t('apply')"
+        class="apply__btn"
         @click="applyPromoCode"
-        :disabled="promoPriceLength <= 3 || promoPriceLength >= 11"
-        :appl-btn="true" />
+        :disabled="
+          promoPriceLength <= 3 ||
+          promoPriceLength >= 11 ||
+          totalTshirtPrice === 0
+        " />
     </div>
-
     <div
       v-if="promoPriceLength > 10"
       class="text-red-500 absolute">
       {{ $t('write words') }}
     </div>
 
-    <div class="flex flex-row justify-between pt-[3.125rem]">
-      <span class="font-medium text-sm text-gray-700">{{
-        $t('place of printing')
-      }}</span>
+    <div class="flex flex-row justify-between pt-12">
+      <span class="font-medium text-sm text-gray-700">print placement</span>
       <div class="font-medium text-xl text-gray-800">
-        <span>{{ coverPrice }}</span> {{ currency }}
+        {{ coverPrice }} {{ currency }}
       </div>
     </div>
 
     <div class="flex flex-row justify-between mt-5">
-      <span class="text-xl">{{ $t('final price') }}</span>
+      <span class="text-xl">Final price</span>
       <div class="font-medium text-xl text-gray-800">
-        <span>{{ priceValue }}</span> {{ currency }}
+        {{ totalTshirtPrice }} {{ currency }}
       </div>
     </div>
   </section>
@@ -86,6 +81,10 @@ export default {
       () => store.getters.getIsPromoCodeActive,
     );
     const isRadioBtnEmpty = computed(() => store.state.radioBtn);
+    const totalTshirtPrice = computed(() => store.getters.getTshirtPrice);
+    const tshirtCoverPrice = computed(
+      () => store.getters.getTshirtCoverPrice[0],
+    );
 
     function inputPromoPrice(payload) {
       store.commit('ADD_INPUT_PROMO_PRICE', payload);
@@ -112,6 +111,8 @@ export default {
       isRadioBtnEmpty,
       randomId,
       currentId,
+      totalTshirtPrice,
+      tshirtCoverPrice,
     };
   },
 };

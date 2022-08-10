@@ -15,9 +15,19 @@
       <section class="mt-[9.375rem] ml-[6.25rem] absolute">
         <div class="flex">
           <div
-            class="bg-[url('@/assets/images/tshirt-front.png')] w-56 h-[15.625rem]" />
+            class="bg-[url('@/assets/images/tshirt-front.png')] w-56 h-[15.625rem]">
+            <img
+              alt="print image"
+              :src="image"
+              class="mt-16 ml-16 w-[5.625rem] h-[4.375rem]" />
+          </div>
           <div
-            class="bg-[url('@/assets/images/tshirt-back.png')] w-56 h-[15.625rem] ml-[6.25rem]" />
+            class="bg-[url('@/assets/images/tshirt-back.png')] w-56 h-[15.625rem] ml-[6.25rem]">
+            <img
+              alt="print image"
+              :src="image"
+              class="mt-16 ml-16 w-[5.625rem] h-[4.375rem]" />
+          </div>
         </div>
       </section>
       <header>
@@ -47,7 +57,8 @@
           @click="$router.push('hangeofImprintView')"
           :text="$t('next')"
           :disabled="tshirtCoverPrice === undefined"
-          :color-primary="true" />
+          :color-primary="true"
+          class="disabled:bg-red-600" />
       </section>
     </div>
 
@@ -58,14 +69,13 @@
     </div>
   </main>
 </template>
-
 <script>
 import cAccount from '@/components/steps/Account.component.vue';
 import cTitle from '@/components/Title.component.vue';
 import cRadioBtn from '@/components/RadioButton.component.vue';
 import cActionBtn from '@/components/ActionButton.component.vue';
 import cOrderPrv from '@/components/OrderPreview.component.vue';
-
+import cImage from '@/components/Image.component.vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { computed, provide } from 'vue';
@@ -78,6 +88,7 @@ export default {
     cRadioBtn,
     cActionBtn,
     cOrderPrv,
+    cImage,
   },
 
   setup() {
@@ -93,14 +104,7 @@ export default {
       () => store.getters.getIsPromoCodeActive,
     );
     const currentPage = computed(() => store.getters.getPathNumber);
-
-    // onMounted(() => {
-    //   store.dispatch('loadImage', {
-    //     id: Math.floor(Math.random() * 1000),
-    //     blur: 0,
-    //     grayscale: 0,
-    //   });
-    // });
+    const image = computed(() => store.state.image);
 
     store.commit('ROUTER_NAMES', currentPathObject.name);
     provide('number', currentPage.value[0]);
@@ -117,8 +121,6 @@ export default {
       store.commit('ADD_RADIO_BTN', Number(payload));
     }
 
-    provide('number', currentPage.value[0]);
-
     return {
       router,
       currentPathObject,
@@ -127,6 +129,7 @@ export default {
       tshirtCoverPrice,
       getIsPromoCodeActive,
       tshirtPriceCover,
+      image,
       getValueBtnFront,
       getValueBtnBack,
       getValueBtnBoth,
