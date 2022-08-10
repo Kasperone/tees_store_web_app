@@ -2,16 +2,12 @@
   <section>
     <nav>
       <c-nav-bar-items
-        :is-active='true'
-        img-file-name='tees-logo.png'
-        img-alt='tees logo'
-      />
+        :is-active="true"
+        img-file-name="tees-logo.png"
+        img-alt="tees logo" />
     </nav>
 
-    <img
-      class="max-w-fit"
-      src="@/assets/images/line.svg"
-      alt="horizontal line" />
+    <div class="border-b-2 border-gray-500 max-w-auto"></div>
   </section>
 </template>
 
